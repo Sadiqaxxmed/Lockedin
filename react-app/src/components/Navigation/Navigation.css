@@ -2,6 +2,45 @@
   position: absolute;
 }
 
+.profile-icon {
+  font-size: larger;
+  color:rgb(2, 102, 192);
+  background-color: transparent;
+  border: none;
+}
+
+
 .hidden {
   display: none;
+}
+
+.NV-div-main {
+  display: inline-flex;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.NV-div-left {
+  position: absolute;
+  top: 20px;
+  left: 200px;
+}
+
+.NV-div-right {
+  position: absolute;
+  top: 25px;
+  right: 300px;
+}
+
+.NV-search {
+  height: 35px;
+  width: 230px;
+  padding-left: 5px;
+  margin-left: 15px;
+  background-color: rgb(238, 243, 247);
+  border: none;
+  border-radius: 5px;
 }
