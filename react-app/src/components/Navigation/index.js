@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
@@ -11,9 +11,9 @@ function Navigation({ isLoaded }) {
     <>
       <div className="NV-div-main">
         <div className="NV-div-left">
-          <NavLink exact to="/">
+          <Link exact to="/Feed">
             <i class="fa-brands fa-linkedin fa-2xl"></i>
-          </NavLink>
+          </Link>
           <input placeholder='Search' className="NV-search"></input>
         </div>
 
