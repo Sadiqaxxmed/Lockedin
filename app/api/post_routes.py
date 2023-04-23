@@ -19,13 +19,12 @@ def create_posts(user_id):
     """
     Create a post
     """
-    data = request.get_json()
+    data = request.form
 
     post = Post(
-        post=data['post'],
+        post=data.get('post'),
         owner_id=user_id
     )
-
 
     db.session.add(post)
     db.session.commit()
