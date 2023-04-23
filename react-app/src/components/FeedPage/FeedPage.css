@@ -31,6 +31,8 @@ body {
   background-color: black;
 } */
 
+
+
 .FD-Post-Card {
   height: 118px;
   width: 560px;
@@ -43,14 +45,28 @@ body {
   border-radius: 10px;
 }
 
-.FD-Post-Input {
+.FD-Post-Button {
   position: absolute;
   height: 40px;
   width: 460px;
   padding-left: 10px;
   top: 15px;
   margin-left: 70px;
+  border: 1px solid black;
+  background-color: white;
   border-radius: 40px;
+}
+
+.FD-Post-Button-Text {
+  display: inline-flex;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.FD-Post-Button:hover {
+  cursor: pointer;
+  background-color: rgb(243, 242, 239)
 }
 
 .FD-Post-Div {
