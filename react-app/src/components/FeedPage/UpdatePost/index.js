@@ -1,51 +1,42 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import "./CreatePost.css";
-import { thunkCreatePost } from "../../../store/post";
+// import "./UpdatePost.css";
+import { thunkUpdatePost } from "../../../store/post";
 import { useModal } from "../../../context/Modal";
 
 
-const CreatePost = () => {
+const UpdatePost = (post) => {
 
   const history = useHistory();
   const dispatch = useDispatch()
   const { closeModal } = useModal()
-  const [post, setPost] = useState('')
+  const [updatePost, setUpdatePost] = useState(post.post.post)
+  const postId = post.post.id
 
-  const user = useSelector(state => state.session.user.id)
-
-
-
-  const handleSubmit = async (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-
-    formData.append('post', post)
-    formData.append('owner_id', user)
-
     closeModal();
-    dispatch(thunkCreatePost(formData, user));
+    dispatch(thunkUpdatePost({postId, updatePost}));
     return history.push('/feed');
-
 };
 
   return (
     <>
-      <h3>Start a Post!</h3>
+      <h3>Edit Post!</h3>
       <form
         className="PS-Form"
-        onSubmit={handleSubmit}
-        method="POST"
+        onSubmit={handleUpdate}
+        method="PUT"
         encType="multipart/form-data"
       >
         <div className="FD-Post_Div">
           <input
             type="text"
             className="FD-Post"
-            value={post}
-            onChange={(e) => setPost(e.target.value)}
+            placeholder={updatePost}
+            value={updatePost}
+            onChange={(e) => setUpdatePost(e.target.value)}
             required
           />
         </div>
@@ -55,4 +46,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default UpdatePost;

@@ -4,10 +4,11 @@ import { useHistory, useParams } from "react-router-dom";
 
 import "./FeedPage.css";
 
-import { thunkGetPosts } from "../../store/post";
+import { thunkGetPosts, thunkUpdatePost } from "../../store/post";
 
 import OpenModalButton from "../OpenModalButton";
 import CreatePost from "./CreatePost";
+import UpdatePost from "./UpdatePost";
 
 function FeedPage() {
   const dispatch = useDispatch();
@@ -17,9 +18,9 @@ function FeedPage() {
   // const user = useSelector(state => state.session.user)
   const posts = Object.values(useSelector((state) => state.posts.allPosts));
 
-
   useEffect(async () => {
     dispatch(thunkGetPosts());
+
   }, [dispatch]);
 
   return (
@@ -49,10 +50,31 @@ function FeedPage() {
               src="https://avatars.githubusercontent.com/u/43020644?v=4"
             ></img>
             <h3 className="FD-Posted-Card-Name">Sadiq Ahmed</h3>
-            <i class="fa-solid fa-ellipsis FD-Posted-Card-Menu-Icon"></i>
-            <p className="FD-Posted-Card-Description">
-              {post.post}
-            </p>
+            {/* <div>
+            <OpenModalButton
+                className="FD-Posted-Card-Menu-Icon"
+                // buttonText="Start a post"
+                modalComponent={<CreatePost />}
+              />
+              <i class="fa-solid fa-ellipsis FD-Posted-Card-Menu-Icon"></i>
+            </div> */}
+            {/* <div> */}
+              <OpenModalButton
+                className="FD-Posted-Card-Menu-Icon"
+                buttonText="Update a post"
+                onButtonClick={''}
+                modalComponent={<UpdatePost post={post} />}
+              />
+              {/* <i
+                class="fa-solid fa-ellipsis FD-Posted-Card-Menu-Icon"
+                onClick={() =>
+                  document
+                    .querySelector(".FD-Posted-Card-Menu-Icon button")
+                    .click()
+                }
+              ></i> */}
+            {/* </div> */}
+            <p className="FD-Posted-Card-Description">{post.post}</p>
             <i class="fa-regular fa-thumbs-up FD-Posted-Card-Like-Icon"></i>
             <i class="fa-regular fa-comment FD-Posted-Card-Comment-Icon"></i>
           </div>

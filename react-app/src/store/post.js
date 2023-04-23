@@ -1,7 +1,9 @@
 // -------------------------------------------------------------------- CONSTANT
 
-const GET_POSTS = "POST/GET_POSTS";
-const CREATE_POST = "POST/CREATE_POST";
+const GET_POSTS     = "POST/GET_POSTS";
+const CREATE_POST   = "POST/CREATE_POST";
+const UPDATE_POST   = "POST/UPDATE_POST";
+
 
 // -------------------------------------------------------------------- ACTION
 
@@ -19,6 +21,12 @@ export const actionCreatePost = (post) => {
   };
 };
 
+export const actionUpdatePost = (post) => {
+  return {
+    type: UPDATE_POST,
+    post
+  }
+}
 // -------------------------------------------------------------------- HELPER
 
 const normalizePosts = (posts) => {
@@ -55,6 +63,21 @@ export const thunkCreatePost = (post, user_id) => async (dispatch) => {
     return post;
   }
 };
+
+export const thunkUpdatePost = ({postId,  updatePost}) => async dispatch => {
+  const response = await fetch(`/api/post/feed/updatePost/${postId}`, {
+    method:'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ updatePost })
+  })
+
+  if (response.ok) {
+    const updatedPost = await response.json();
+    dispatch(actionUpdatePost(updatedPost))
+    return updatedPost;
+  }
+}
+
 // -------------------------------------------------------------------- INITIAL STATE
 
 const initialState = {
