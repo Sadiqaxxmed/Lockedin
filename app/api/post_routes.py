@@ -36,14 +36,16 @@ def update_post(post_id):
     """
     Update a post
     """
+    post = Post.query.get(post_id)
     data = request.get_json()
 
-    post = Post.query.get(post_id)
-    post.post = data['post']
+    if post:
+        post.post = data.get('updatePost')
+        db.session.commit()
+        return {'message': 'Song updated successfully', 'status': 200}
+    else:
+        return {'error': 'Song not found', 'status': 404}
 
-    db.session.commit()
-
-    return {'Post': post.to_dict()}
 
 @post_routes.route('/feed/deletePost/<int:post_id>', methods=['DELETE'])
 def delete_post(post_id):
