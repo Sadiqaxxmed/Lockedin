@@ -9,13 +9,12 @@ import { thunkGetPosts, thunkUpdatePost } from "../../store/post";
 import OpenModalButton from "../OpenModalButton";
 import CreatePost from "./CreatePost";
 import UpdatePost from "./UpdatePost";
+import DeletePost from "./DeletePost";
 
 function FeedPage() {
+
   const dispatch = useDispatch();
-
   const [post, setPost] = useState("");
-
-  // const user = useSelector(state => state.session.user)
   const posts = Object.values(useSelector((state) => state.posts.allPosts));
 
   useEffect(async () => {
@@ -26,7 +25,6 @@ function FeedPage() {
   return (
     <div className="FD-main-div">
       <div className="FD-Profile-Card"></div>
-
       <div className="FD-Post-Card">
         <img
           className="FD-Post-Card-Img"
@@ -38,42 +36,25 @@ function FeedPage() {
             buttonText="Start a post"
             modalComponent={<CreatePost />}
           />
-          {/* <p className="FD-Post-Button-Text">Start a Post</p> */}
         </div>
       </div>
-
       <div className="FD-Post-Div">
         {posts.map((post) => (
           <div className="FD-Posted-Card">
-            <img
-              className="FD-Posted-Card-Img"
-              src="https://avatars.githubusercontent.com/u/43020644?v=4"
-            ></img>
+            <img className="FD-Posted-Card-Img" src="https://avatars.githubusercontent.com/u/43020644?v=4"></img>
             <h3 className="FD-Posted-Card-Name">Sadiq Ahmed</h3>
-            {/* <div>
-            <OpenModalButton
-                className="FD-Posted-Card-Menu-Icon"
-                // buttonText="Start a post"
-                modalComponent={<CreatePost />}
-              />
-              <i class="fa-solid fa-ellipsis FD-Posted-Card-Menu-Icon"></i>
-            </div> */}
-            {/* <div> */}
               <OpenModalButton
-                className="FD-Posted-Card-Menu-Icon"
-                buttonText="Update a post"
+                className="FD-Posted-Card-Update"
+                buttonText="Edit a post"
                 onButtonClick={''}
                 modalComponent={<UpdatePost post={post} />}
               />
-              {/* <i
-                class="fa-solid fa-ellipsis FD-Posted-Card-Menu-Icon"
-                onClick={() =>
-                  document
-                    .querySelector(".FD-Posted-Card-Menu-Icon button")
-                    .click()
-                }
-              ></i> */}
-            {/* </div> */}
+              <OpenModalButton
+                className="FD-Posted-Card-Delete"
+                buttonText="Delete a post"
+                onButtonClick={''}
+                modalComponent={<DeletePost post={post} />}
+              />
             <p className="FD-Posted-Card-Description">{post.post}</p>
             <i class="fa-regular fa-thumbs-up FD-Posted-Card-Like-Icon"></i>
             <i class="fa-regular fa-comment FD-Posted-Card-Comment-Icon"></i>

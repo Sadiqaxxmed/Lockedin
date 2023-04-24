@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-// import "./UpdatePost.css";
+import "./UpdatePost.css";
 import { thunkUpdatePost } from "../../../store/post";
 import { useModal } from "../../../context/Modal";
 
@@ -23,7 +23,7 @@ const UpdatePost = (post) => {
 
   return (
     <>
-      <h3>Edit Post!</h3>
+      <h3 className="FD-Title">Edit Post!</h3>
       <form
         className="PS-Form"
         onSubmit={handleUpdate}
@@ -31,7 +31,7 @@ const UpdatePost = (post) => {
         encType="multipart/form-data"
       >
         <div className="FD-Post_Div">
-          <input
+          <textarea
             type="text"
             className="FD-Post"
             placeholder={updatePost}
@@ -40,7 +40,7 @@ const UpdatePost = (post) => {
             required
           />
         </div>
-        <button className='FD-Submit-Btn' type="submit">Submit</button>
+        <div className="FD-Del-Button" onClick={handleUpdate} type="submit">Edit</div>
       </form>
     </>
   );

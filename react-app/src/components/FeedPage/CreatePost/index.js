@@ -33,7 +33,7 @@ const CreatePost = () => {
 
   return (
     <>
-      <h3>Start a Post!</h3>
+      <h3 className="FD-Title">Start a Post!</h3>
       <form
         className="PS-Form"
         onSubmit={handleSubmit}
@@ -41,7 +41,7 @@ const CreatePost = () => {
         encType="multipart/form-data"
       >
         <div className="FD-Post_Div">
-          <input
+          <textarea
             type="text"
             className="FD-Post"
             value={post}
@@ -49,7 +49,8 @@ const CreatePost = () => {
             required
           />
         </div>
-        <button className='FD-Submit-Btn' type="submit">Submit</button>
+        <div className="FD-Del-Button" onClick={handleSubmit} type="submit">Post</div>
+        {/* <button className='FD-Submit-Btn' type="submit">Submit</button> */}
       </form>
     </>
   );
