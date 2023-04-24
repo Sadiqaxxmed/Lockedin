@@ -3,6 +3,7 @@
 const GET_POSTS     = "POST/GET_POSTS";
 const CREATE_POST   = "POST/CREATE_POST";
 const UPDATE_POST   = "POST/UPDATE_POST";
+const DELETE_POST   = 'DELETE_POST';
 
 
 // -------------------------------------------------------------------- ACTION
@@ -24,6 +25,13 @@ export const actionCreatePost = (post) => {
 export const actionUpdatePost = (post) => {
   return {
     type: UPDATE_POST,
+    post
+  }
+}
+
+export const actionDeletePost = (post) => {
+  return {
+    type: DELETE_POST,
     post
   }
 }
@@ -77,6 +85,19 @@ export const thunkUpdatePost = ({postId,  updatePost}) => async dispatch => {
     return updatedPost;
   }
 }
+
+export const thunkDeletePost = ({postId, userId}) => async dispatch => {
+  const response = await fetch(`/api/post/feed/deletePost/${postId}`, {method:'DELETE'})
+
+  if (response.ok) {
+    const deletedPost = await response.json();
+    dispatch(actionDeletePost(deletedPost))
+    return deletedPost;
+  }
+
+  return { error: 'There was a problem deleting the song', statusCode: response.status };
+}
+
 
 // -------------------------------------------------------------------- INITIAL STATE
 

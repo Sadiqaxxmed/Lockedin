@@ -1,0 +1,60 @@
+.DP-Title{
+  color: rgb(2, 102, 192);
+  position: absolute;
+  font-size: 20px;
+  width: 250px;
+  text-align: center;
+  font-weight: 600;
+  top: 40px;
+  left: 80px;
+}
+
+.DP-Post{
+  position: absolute;
+  font-size: 15px;
+  width: 250px;
+  text-align: center;
+  font-weight: 600;
+  top: 160px;
+  left: 80px;
+}
+
+.DP-Buttons{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: .9em;
+  position: absolute;
+  bottom: 15px;
+  left: 12px;
+}
+
+.DP-Cancel-Button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: rgb(112, 102, 115);
+  width: 115px;
+  border-radius: 6px;
+  margin-left: 80px;
+  padding: 6px 0px 6px 0px;
+  color: white;
+  cursor: pointer;
+}
+
+.DP-Del-Button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: rgb(2, 102, 192);
+  width: 115px;
+  border-radius: 6px;
+  margin-left: 20px;
+  padding: 6px 0px 6px 0px;
+  color: white;
+  cursor: pointer;
+}
