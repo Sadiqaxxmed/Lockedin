@@ -11,28 +11,30 @@ const DELETE_POST   = 'DELETE_POST';
 export const actiongGetPosts = (posts) => {
   return {
     type: GET_POSTS,
-    posts,
+    posts
   };
 };
 
 export const actionCreatePost = (post) => {
   return {
     type: CREATE_POST,
-    post,
+    post
   };
 };
 
-export const actionUpdatePost = (post) => {
+export const actionUpdatePost = (postId, post) => {
   return {
     type: UPDATE_POST,
-    post
+    post,
+    postId
   }
 }
 
-export const actionDeletePost = (post) => {
+export const actionDeletePost = (postId, post) => {
   return {
     type: DELETE_POST,
-    post
+    post,
+    postId
   }
 }
 // -------------------------------------------------------------------- HELPER
@@ -72,7 +74,7 @@ export const thunkCreatePost = (post, user_id) => async (dispatch) => {
   }
 };
 
-export const thunkUpdatePost = ({postId,  updatePost}) => async dispatch => {
+export const thunkUpdatePost = ({postId, updatePost}) => async (dispatch) => {
   const response = await fetch(`/api/post/feed/updatePost/${postId}`, {
     method:'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -80,22 +82,22 @@ export const thunkUpdatePost = ({postId,  updatePost}) => async dispatch => {
   })
 
   if (response.ok) {
-    const updatedPost = await response.json();
-    dispatch(actionUpdatePost(updatedPost))
-    return updatedPost;
+    const post = await response.json();
+    dispatch(actionUpdatePost(postId, post))
+    return post
   }
 }
 
-export const thunkDeletePost = ({postId, userId}) => async dispatch => {
+export const thunkDeletePost = ({postId, userId}) => async (dispatch) => {
   const response = await fetch(`/api/post/feed/deletePost/${postId}`, {method:'DELETE'})
 
   if (response.ok) {
     const deletedPost = await response.json();
-    dispatch(actionDeletePost(deletedPost))
+    dispatch(actionDeletePost(postId, deletedPost))
     return deletedPost;
   }
 
-  return { error: 'There was a problem deleting the song', statusCode: response.status };
+  return { error: 'There was a problem deleting the post', statusCode: response.status };
 }
 
 
@@ -111,13 +113,16 @@ const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POSTS:
       return { ...state, allPosts: { ...action.posts } };
-    case CREATE_POST: {
-      const newState = { ...state };
-      newState.allPosts = { ...state.allPosts, [action.post.id]: action.post };
-      return newState;
-    }
+    case CREATE_POST:
+      return { ...state, allPosts: { ...state.allPosts, ...action.post } }
+    case UPDATE_POST:
+      return { ...state, allPosts: { ...state.allPosts, [action.postId]: action.post.Post } };
+    case DELETE_POST:
+      const { [action.postId]: post, ...newPosts } = state.allPosts
+      console.log('NEWPOST', newPosts)
+      return { ...state.allPosts, allPosts: newPosts }
     default:
-      return { ...state };
+      return state;
   }
 };
 

@@ -42,7 +42,7 @@ def update_post(post_id):
     if post:
         post.post = data.get('updatePost')
         db.session.commit()
-        return {'message': 'Song updated successfully', 'status': 200}
+        return {'post': post.to_dict()}
     else:
         return {'error': 'Song not found', 'status': 404}
 

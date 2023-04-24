@@ -13,7 +13,7 @@ const CreatePost = () => {
   const { closeModal } = useModal()
   const [post, setPost] = useState('')
 
-  const user = useSelector(state => state.session.user.id)
+  const user = useSelector(state => state.session.user?.id)
 
 
 
