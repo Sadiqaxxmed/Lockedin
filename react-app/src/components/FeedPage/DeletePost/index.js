@@ -10,7 +10,7 @@ const DeletePost = (post) => {
 
     const dispatch = useDispatch();
     const {closeModal} = useModal()
-    const userId = useSelector(state => state.session.user.id)
+    const userId = useSelector(state => state.session.user?.id)
 
     const deletedPost = post.post.post
     const postId = post.post.id
@@ -22,7 +22,7 @@ const DeletePost = (post) => {
     }
 
     return(
-        <div className='DP-Main-Wrapper' >
+        <div className='DP-Main-Wrapper'>
             <h1 className="DP-Title">Are you sure you want to delete this post?</h1>
             <h1 className="DP-Post">{deletedPost}</h1>
             <div className="DP-Buttons">

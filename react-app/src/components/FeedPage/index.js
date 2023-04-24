@@ -17,9 +17,8 @@ function FeedPage() {
   const [post, setPost] = useState("");
   const posts = Object.values(useSelector((state) => state.posts.allPosts));
 
-  useEffect(async () => {
+  useEffect(() => {
     dispatch(thunkGetPosts());
-
   }, [dispatch]);
 
   return (
