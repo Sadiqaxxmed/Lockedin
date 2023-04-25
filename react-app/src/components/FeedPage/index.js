@@ -54,7 +54,7 @@ function FeedPage() {
                 onButtonClick={''}
                 modalComponent={<DeletePost post={post} />}
               />
-            <p className="FD-Posted-Card-Description">{post.post}</p>
+            <p className="FD-Posted-Card-Description">{post?.post}</p>
             <i class="fa-regular fa-thumbs-up FD-Posted-Card-Like-Icon"></i>
             <i class="fa-regular fa-comment FD-Posted-Card-Comment-Icon"></i>
           </div>
