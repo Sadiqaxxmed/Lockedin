@@ -8,19 +8,34 @@ def seed_posts():
     post1 = Post(
         post='Today was a fun day working on capstones.',
         owner_id=1
-        )
+    )
     post2 = Post(
         post='Starting a new position YALLLLL!',
         owner_id=1
-        )
+    )
     post3 = Post(
         post='Feeling a bit down today can really use some motivation today 😪.',
         owner_id=1
-        )
+    )
+    post4 = Post(
+        post='Today was a fun day working on capstones.',
+        owner_id=1
+    )
+    post5 = Post(
+        post='Starting a new position YALLLLL!',
+        owner_id=1
+    )
+    post6 = Post(
+        post='Feeling a bit down today can really use some motivation today 😪.',
+        owner_id=1
+    )
 
     db.session.add(post1)
     db.session.add(post2)
     db.session.add(post3)
+    db.session.add(post4)
+    db.session.add(post5)
+    db.session.add(post6)
     db.session.commit()
 
 
@@ -32,7 +47,8 @@ def seed_posts():
 # it will reset the primary keys for you as well.
 def undo_posts():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.posts RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.posts RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM posts"))
 

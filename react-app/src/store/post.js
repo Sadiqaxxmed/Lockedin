@@ -69,7 +69,7 @@ export const thunkCreatePost = (post, user_id) => async (dispatch) => {
 
   if (response.ok) {
     const post = await response.json();
-    dispatch(actionCreatePost(post));
+    dispatch(actionCreatePost(post.Post));
     return post;
   }
 };
@@ -83,7 +83,7 @@ export const thunkUpdatePost = ({postId, updatePost}) => async (dispatch) => {
 
   if (response.ok) {
     const post = await response.json();
-    dispatch(actionUpdatePost(postId, post))
+    dispatch(actionUpdatePost(postId, post.post))
     return post
   }
 }
@@ -114,13 +114,15 @@ const postsReducer = (state = initialState, action) => {
     case GET_POSTS:
       return { ...state, allPosts: { ...action.posts } };
     case CREATE_POST:
-      return { ...state, allPosts: { ...state.allPosts, ...action.post } }
+      const createState = { ...state, allPosts: { ...state.allPosts }}
+      createState.allPosts[action.post.id] = action.post
+      return createState
     case UPDATE_POST:
-      return { ...state, allPosts: { ...state.allPosts, [action.postId]: action.post.Post } };
+      return { ...state, allPosts: { ...state.allPosts, [action.postId]: action.post } };
     case DELETE_POST:
-      const { [action.postId]: post, ...newPosts } = state.allPosts
-      console.log('NEWPOST', newPosts)
-      return { ...state.allPosts, allPosts: newPosts }
+      const newState = { ...state, allPosts: { ...state.allPosts } }
+      delete newState.allPosts[action.postId]
+      return newState
     default:
       return state;
   }
