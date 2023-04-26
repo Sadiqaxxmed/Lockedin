@@ -23,6 +23,12 @@ const CreateComment = (post) => {
 
     const formData = new FormData();
 
+
+    formData.append('comment', comment)
+    formData.append('userId', user)
+    formData.append('postId', postId)
+
+
     closeModal();
     dispatch(thunkCreateComment(formData, user, postId));
     return history.push('/feed');
