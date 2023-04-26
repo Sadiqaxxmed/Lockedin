@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------- CONSTANT
 
-const GET_POSTS     = "POST/GET_POSTS";
-const CREATE_POST   = "POST/CREATE_POST";
-const UPDATE_POST   = "POST/UPDATE_POST";
-const DELETE_POST   = 'DELETE_POST';
+const GET_POSTS     = 'POST/GET_POSTS';
+const CREATE_POST   = 'POST/CREATE_POST';
+const UPDATE_POST   = 'POST/UPDATE_POST';
+const DELETE_POST   = 'POST/DELETE_POST';
 
 
 // -------------------------------------------------------------------- ACTION
