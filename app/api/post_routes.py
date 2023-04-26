@@ -64,14 +64,10 @@ def delete_post(post_id):
     return {'message': 'Post deleted successfully'}
 
 
-@post_routes.route('/feed/<int:post_id>/comments')
-def get_post_comments(post_id):
+@post_routes.route('/feed/comments')
+def get_post_comments():
 
-    comments = Comment.query.filter_by(comment_id=post_id).all()
-
-    if not comments:
-        return {'message': 'There are no comments for this post'}, 404
-
+    comments = Comment.query.all()
     return {'comments': [comment.to_dict() for comment in comments]}
 
 
@@ -106,11 +102,13 @@ def update_comment(comment_id):
 
     data = request.get_json()
 
-    comment.comment = data.get('comment', comment.comment)
+    comment.comment = data.get('updateComment', comment.comment)
 
     db.session.commit()
 
     return {'comment': comment.to_dict()}
+
+
 
 
 @post_routes.route('/feed/deleteComment/<int:comment_id>', methods=['DELETE'])
