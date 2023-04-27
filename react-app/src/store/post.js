@@ -1,5 +1,7 @@
 // -------------------------------------------------------------------- CONSTANT
 
+import { thunkGetComments } from "./comment";
+
 const GET_POSTS     = 'POST/GET_POSTS';
 const CREATE_POST   = 'POST/CREATE_POST';
 const UPDATE_POST   = 'POST/UPDATE_POST';
@@ -94,6 +96,7 @@ export const thunkDeletePost = ({postId, userId}) => async (dispatch) => {
   if (response.ok) {
     const deletedPost = await response.json();
     dispatch(actionDeletePost(postId, deletedPost))
+    dispatch(thunkGetComments())
     return deletedPost;
   }
 

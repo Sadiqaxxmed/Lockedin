@@ -13,7 +13,7 @@ class Post(db.Model):
     owner_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
 
     user = db.relationship('User', back_populates='posts')
-    comments = db.relationship('Comment', back_populates='post')
+    comments = db.relationship('Comment', back_populates='posts', cascade='all, delete')
 
 
     def to_dict(self):

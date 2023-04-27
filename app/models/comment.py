@@ -11,10 +11,10 @@ class Comment(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     comment = db.Column(db.String(1000), nullable=False)
     owner_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
-    comment_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('posts.id')))
+    comment_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('posts.id'), ondelete='CASCADE'))
 
     user = db.relationship('User', back_populates='comments')
-    post = db.relationship('Post', back_populates='comments')
+    posts = db.relationship('Post', back_populates='comments')
 
     def to_dict(self):
         return {
