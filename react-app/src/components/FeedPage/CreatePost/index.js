@@ -32,7 +32,7 @@ const CreatePost = () => {
 };
 
   return (
-    <>
+    <div className="FD-form">
       <h3 className="FD-Title">Start a Post!</h3>
       <form
         className="PS-Form"
@@ -52,7 +52,7 @@ const CreatePost = () => {
         <div className="FD-Del-Button" onClick={handleSubmit} type="submit">Post</div>
         {/* <button className='FD-Submit-Btn' type="submit">Submit</button> */}
       </form>
-    </>
+    </div>
   );
 };
 

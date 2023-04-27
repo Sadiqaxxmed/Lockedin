@@ -1,3 +1,6 @@
+.FD-Post-Update{
+  height: 400px;
+}
 .FD-Title{
   color: rgb(2, 102, 192);
   position: absolute;
@@ -8,6 +11,7 @@
   top: 40px;
   left: 80px;
 }
+
 .FD-Post_Div {
   position: absolute;
   top: 115px;

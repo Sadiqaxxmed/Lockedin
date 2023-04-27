@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateComment } from "../../../store/comment";
 import { useModal } from "../../../context/Modal";
 
+import './CreateComment.css'
 
 const CreateComment = (post) => {
 
@@ -36,7 +37,7 @@ const CreateComment = (post) => {
 };
 
   return (
-    <>
+    <div className="FD-Post-Comment">
       <h3 className="FD-Title">Leave a Comment!</h3>
       <form
         className="PS-Form"
@@ -55,7 +56,7 @@ const CreateComment = (post) => {
         </div>
         <div className="FD-Del-Button" onClick={handleSubmit} type="submit">Submit</div>
       </form>
-    </>
+    </div>
   );
 };
 

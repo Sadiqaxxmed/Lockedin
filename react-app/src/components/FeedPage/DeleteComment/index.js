@@ -4,6 +4,7 @@ import { thunkDeleteComment } from "../../../store/comment";
 
 import { useModal } from "../../../context/Modal";
 
+import './DeleteComment.css'
 
 const DeleteComment = ({comment}) => {
 
