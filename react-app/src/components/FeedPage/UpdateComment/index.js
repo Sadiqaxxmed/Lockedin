@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkUpdateComment } from "../../../store/comment";
 import { useModal } from "../../../context/Modal";
 
-
+import './UpdateComment.css'
 const UpdateComment = (props) => {
 
   const {post, comment} = props;
@@ -26,7 +26,7 @@ const UpdateComment = (props) => {
 };
 
   return (
-    <>
+    <div className="FD-Update-Comment">
       <h3 className="FD-Title">Edit Post!</h3>
       <form
         className="PS-Form"
@@ -46,7 +46,7 @@ const UpdateComment = (props) => {
         </div>
         <div className="FD-Del-Button" onClick={handleUpdate} type="submit">Edit</div>
       </form>
-    </>
+    </div>
   );
 };
 

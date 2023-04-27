@@ -1,4 +1,4 @@
-#modal-content {
+.FD-form {
   height: 400px;
 }
 
@@ -19,8 +19,7 @@
 }
 
 .FD-Post{
-  height: 150px;
-  width: 300px;
+
   resize: none;
 }
 

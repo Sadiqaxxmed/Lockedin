@@ -22,7 +22,7 @@ const UpdatePost = (post) => {
 };
 
   return (
-    <>
+    <div className="FD-Post-Update">
       <h3 className="FD-Title">Edit Post!</h3>
       <form
         className="PS-Form"
@@ -42,7 +42,7 @@ const UpdatePost = (post) => {
         </div>
         <div className="FD-Del-Button" onClick={handleUpdate} type="submit">Edit</div>
       </form>
-    </>
+    </div>
   );
 };
 
