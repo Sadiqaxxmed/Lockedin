@@ -14,8 +14,8 @@ class User(db.Model, UserMixin):
     lastname = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     occupation = db.Column(db.String(40), nullable=False)
-    profilepicture = db.Column(db.String(), nullable=False)
-    headerimage = db.Column(db.String(), nullable=False)
+    profileImage = db.Column(db.String(), nullable=False)
+    headerImage = db.Column(db.String(), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
 
     posts = db.relationship('Post', back_populates='user')
@@ -38,8 +38,8 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'firstname': self.firstname,
             'lastname': self.lastname,
-            'profilepicture': self.profilepicture,
-            'headerimage': self.headerimage,
+            'profileImage': self.profileImage,
+            'headerImage': self.headerImage,
             'email': self.email,
             'occupation': self.occupation
         }

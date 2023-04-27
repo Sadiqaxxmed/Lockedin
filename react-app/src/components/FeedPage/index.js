@@ -25,7 +25,10 @@ function FeedPage() {
 
   const history = useHistory();
   const userId = useSelector((state) => state.session.user?.id);
-  const firstName = useSelector((state) => state.session.user.firstname);
+  const firstName = useSelector((state) => state.session.user?.firstname);
+  const user = useSelector(state => state.session.user)
+  const currUser = useSelector(state => state.session?.user)
+
 
   const posts = Object.values(useSelector((state) => state.posts.allPosts));
   const comments = Object.values(
@@ -54,7 +57,7 @@ function FeedPage() {
 
   return (
     <div className="FD-main-div">
-      <div className="FD-Profile-Card"></div>
+      {/* <div className="FD-Profile-Card"></div> */}
       <div className="FD-Post-Card">
         <img
           className="FD-Post-Card-Img"
@@ -75,8 +78,11 @@ function FeedPage() {
               <img
                 className="FD-Posted-Card-Img"
                 src="https://avatars.githubusercontent.com/u/43020644?v=4"
+                // src={currUser.profileImage}
               ></img>
-              <h3 className="FD-Posted-Card-Name">Sadiq Ahmed</h3>
+              <h3 className="FD-Posted-Card-Name">
+              {currUser?.firstname} {currUser?.lastname}
+              </h3>
               <OpenModalButton
                 className="FD-Posted-Card-Update"
                 buttonText="Edit a post"

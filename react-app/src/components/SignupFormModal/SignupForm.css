@@ -1,0 +1,33 @@
+.signup-form-modal {
+
+  /* margin-top: 20px; */
+  height: 640px;
+}
+
+.signup-title {
+
+  font-size: 40px;
+  color:  rgb(2, 102, 192);
+  position: absolute;
+  top: 5px;
+  left: 150px;
+
+}
+
+.SM-Text {
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+
+
+.SM-Input {
+  margin-left: 10px;
+  width: 350px;
+}
+
+.SM {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
