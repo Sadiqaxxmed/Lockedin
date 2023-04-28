@@ -41,9 +41,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-      <i class="fa-solid fa-bars profile-icon"></i>
-      </button>
+      <div onClick={openMenu}>
+        <img className="profile-icon" src={user?.profileImage}></img>
+      </div>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="Logedout-Div">

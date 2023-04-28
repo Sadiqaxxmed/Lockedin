@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------- CONSTANT
 
-import { thunkGetComments } from "./comment";
+import { actionGetComments, thunkGetComments } from "./comment";
 
 const GET_POSTS     = 'POST/GET_POSTS';
 const CREATE_POST   = 'POST/CREATE_POST';
@@ -41,14 +41,18 @@ export const actionDeletePost = (postId, post) => {
 }
 // -------------------------------------------------------------------- HELPER
 
+
 const normalizePosts = (posts) => {
   const normalized = {};
 
   posts.forEach((post) => {
-    normalized[post.id] = post;
+    post.post.user = post.user
+    delete post.user
+    normalized[post.post.id] = post;
   });
   return normalized;
 };
+
 
 // -------------------------------------------------------------------- THUNK
 
@@ -56,9 +60,9 @@ export const thunkGetPosts = () => async (dispatch) => {
   const response = await fetch("api/post/feed");
 
   if (response.ok) {
-    const allPosts = await response.json();
-    const normalized = normalizePosts(allPosts.posts);
-    dispatch(actiongGetPosts(normalized));
+    const data = await response.json();
+    let res = normalizePosts(data.posts);
+    dispatch(actiongGetPosts(res));
     return;
   }
 };
@@ -71,7 +75,9 @@ export const thunkCreatePost = (post, user_id) => async (dispatch) => {
 
   if (response.ok) {
     const post = await response.json();
+    console.log('ThunkPost', post)
     dispatch(actionCreatePost(post.Post));
+    dispatch(thunkGetPosts())
     return post;
   }
 };
@@ -86,6 +92,7 @@ export const thunkUpdatePost = ({postId, updatePost}) => async (dispatch) => {
   if (response.ok) {
     const post = await response.json();
     dispatch(actionUpdatePost(postId, post.post))
+    dispatch(thunkGetPosts())
     return post
   }
 }
@@ -118,10 +125,10 @@ const postsReducer = (state = initialState, action) => {
       return { ...state, allPosts: { ...action.posts } };
     case CREATE_POST:
       const createState = { ...state, allPosts: { ...state.allPosts }}
-      createState.allPosts[action.post.id] = action.post
+      createState.allPosts[action.post.id] = { post: action.post}
       return createState
     case UPDATE_POST:
-      return { ...state, allPosts: { ...state.allPosts, [action.postId]: action.post } };
+      return { ...state, allPosts: { ...state.allPosts, [action.postId]: { post: action.post} } };
     case DELETE_POST:
       const newState = { ...state, allPosts: { ...state.allPosts } }
       delete newState.allPosts[action.postId]

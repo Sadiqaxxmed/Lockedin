@@ -50,7 +50,6 @@ const CreatePost = () => {
           />
         </div>
         <div className="FD-Del-Button" onClick={handleSubmit} type="submit">Post</div>
-        {/* <button className='FD-Submit-Btn' type="submit">Submit</button> */}
       </form>
     </div>
   );

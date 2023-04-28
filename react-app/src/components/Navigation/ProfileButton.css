@@ -1,3 +1,15 @@
+.profile-icon {
+  position: absolute;
+  top: -8px;
+  object-fit: cover;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.profile-icon:hover {
+  cursor: pointer;
+}
 .Logedin-Div {
   position: absolute;
   top: 5px;
@@ -10,14 +22,16 @@
 
 .Logedout-Div {
   position: absolute;
-  top: 5px;
-  right: -35px;
+  text-align: center;
+  top: 25px;
+  right: -40px;
   height: 140px;
   width: 120px;
   border-radius: 5px;
   background-color: white;
 }
 .Login {
+  text-align: center;
   font-size: 15px;
   font-weight: 600;
   color: white;
@@ -30,6 +44,8 @@
 }
 
 .Singup {
+  text-align: center;
+
   font-size: 15px;
   font-weight: 600;
   color: white;
@@ -65,5 +81,5 @@
 
 .userInfo {
   position: relative;
-  padding-left: 5px;
+  /* padding-left: 5px; */
 }

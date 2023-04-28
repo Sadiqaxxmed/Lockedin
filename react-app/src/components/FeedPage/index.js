@@ -4,8 +4,8 @@ import { useHistory, useParams } from "react-router-dom";
 
 import "./FeedPage.css";
 
-import { thunkGetPosts, thunkUpdatePost } from "../../store/post";
-import { thunkGetComments, thunkCreateComment } from "../../store/comment";
+import { thunkGetPosts } from "../../store/post";
+import { thunkGetComments } from "../../store/comment";
 
 import OpenModalButton from "../OpenModalButton";
 
@@ -18,23 +18,16 @@ import UpdateComment from "./UpdateComment";
 import DeleteComment from "./DeleteComment";
 
 function FeedPage() {
+
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState({});
-  const [comment, setComment] = useState("");
-  const [post, setPost] = useState("");
 
-  const history = useHistory();
-  const userId = useSelector((state) => state.session.user?.id);
-  const firstName = useSelector((state) => state.session.user?.firstname);
-  const user = useSelector(state => state.session.user)
-  const currUser = useSelector(state => state.session?.user)
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [postCardId, setPostCardId] = useState(null);
+  const [commentId, setCommentId] = useState(null);
 
-
+  const currUser = useSelector((state) => state.session?.user);
   const posts = Object.values(useSelector((state) => state.posts.allPosts));
-  const comments = Object.values(
-    useSelector((state) => state.comments.allComments)
-  );
-
+  const comments = Object.values(useSelector((state) => state.comments.allComments));
   const postCommentsArr = Object.values(comments);
 
   useEffect(() => {
@@ -42,12 +35,32 @@ function FeedPage() {
     dispatch(thunkGetComments());
   }, [dispatch]);
 
+  function handleMenu(id) {
+    if (!menuOpen && id) {
+      setMenuOpen(true);
+      setPostCardId(id);
+    } else {
+      setMenuOpen(false);
+      setPostCardId(null);
+    }
+  }
+
+  function commentMenu(id) {
+    if (!menuOpen && id) {
+      setMenuOpen(true);
+      setCommentId(id);
+    } else {
+      setMenuOpen(false);
+      setCommentId(null);
+    }
+  }
+
   function getPostComments(postId) {
     const postComments = [];
 
     for (let i = 0; i < postCommentsArr.length; i++) {
       const comment = postCommentsArr[i];
-      if (comment.comment_id === postId) {
+      if (comment.comment.comment_id === postId) {
         postComments.push(comment);
       }
     }
@@ -57,12 +70,8 @@ function FeedPage() {
 
   return (
     <div className="FD-main-div">
-      {/* <div className="FD-Profile-Card"></div> */}
       <div className="FD-Post-Card">
-        <img
-          className="FD-Post-Card-Img"
-          src="https://avatars.githubusercontent.com/u/43020644?v=4"
-        ></img>
+        <img className="FD-Post-Card-Img" src={currUser?.profileImage}></img>
         <div>
           <OpenModalButton
             className="FD-Post-Button"
@@ -77,71 +86,102 @@ function FeedPage() {
             <div className="FD-Posted-Card">
               <img
                 className="FD-Posted-Card-Img"
-                src="https://avatars.githubusercontent.com/u/43020644?v=4"
-                // src={currUser.profileImage}
+                src={post.post.user?.profileImage}
               ></img>
               <h3 className="FD-Posted-Card-Name">
-              {currUser?.firstname} {currUser?.lastname}
+                {post.post.user?.firstname} {post.post.user?.lastname}
               </h3>
-              <OpenModalButton
-                className="FD-Posted-Card-Update"
-                buttonText="Edit a post"
-                onButtonClick={""}
-                modalComponent={<UpdatePost post={post} />}
-              />
-              <OpenModalButton
-                className="FD-Posted-Card-Delete"
-                buttonText="Delete a post"
-                onButtonClick={""}
-                modalComponent={<DeletePost post={post} />}
-              />
-              <p className="FD-Posted-Card-Description">{post?.post}</p>
+              {currUser?.id === post.post.owner_id && (
+                <div className="FD-Menu-Main">
+                  <i
+                    class="fa-solid fa-ellipsis"
+                    onClick={(e) => handleMenu(post.post.id)}
+                  ></i>
+                  {menuOpen && postCardId === post.post.id && (
+                    <div className="FD-Menu-Options">
+                      <OpenModalButton
+                        className="FD-Posted-Card-Update"
+                        buttonText="Edit"
+                        onButtonClick={""}
+                        modalComponent={<UpdatePost post={post.post} />}
+                      />
+                      <OpenModalButton
+                        className="FD-Posted-Card-Delete"
+                        buttonText="Delete"
+                        onButtonClick={""}
+                        modalComponent={<DeletePost post={post.post} />}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <p className="FD-Posted-Card-Description">{post?.post.post}</p>
               <div className="FD-Comment-Div">
                 <div className="FD-Comment-Top">
                   <div className="FD-Comment-Input-Div">
                     <img
                       className="FD-Comment-Card-Img"
-                      src="https://avatars.githubusercontent.com/u/43020644?v=4"
+                      src={currUser?.profileImage}
                     ></img>
                     <div>
                       <OpenModalButton
                         buttonText="Leave a comment..."
                         className="FD-Comment-Input"
-                        modalComponent={<CreateComment post={post} />}
+                        modalComponent={<CreateComment post={post.post} />}
                       />
                     </div>
                   </div>
 
-                  {getPostComments(post.id).map((comment) => (
+                  {getPostComments(post.post.id).map((comment) => (
                     <div className="FD-Comment-Bottom">
                       <div className="FD-Posted-Comment">
                         <img
                           className="FD-Comment-Card-Img"
-                          src="https://avatars.githubusercontent.com/u/43020644?v=4"
-                        ></img>
-                        <p className="FD-Comment">{comment.comment}</p>
-                        <OpenModalButton
-                          className="FD-Comment-Update"
-                          buttonText="Edit"
-                          onButtonClick={""}
-                          modalComponent={
-                            <UpdateComment post={post} comment={comment} />
+                          src={
+                            comment.comment.user?.profileImage
+                              ? comment.comment.user?.profileImage
+                              : "https://avatars.githubusercontent.com/u/43020644?v=4"
                           }
-                        />
-                        <OpenModalButton
-                          className="FD-Comment-Delete"
-                          buttonText="Delete"
-                          onButtonClick={""}
-                          modalComponent={<DeleteComment comment={comment} />}
-                        />
+                        ></img>
+                        <p className="FD-Comment">{comment.comment.comment}</p>
+                        {currUser?.id === comment.comment.owner_id && (
+                          <div className="FD-Comment-Menu-Main">
+                            <i
+                              class="fa-solid fa-ellipsis"
+                              onClick={(e) => commentMenu(comment.comment.id)}
+                            ></i>
+
+                            {menuOpen && commentId === comment.comment.id && (
+                              <div className="FD-Comment-Menu-Options">
+                                <OpenModalButton
+                                  className="FD-Comment-Update"
+                                  buttonText="Edit"
+                                  onButtonClick={""}
+                                  modalComponent={
+                                    <UpdateComment
+                                      post={post}
+                                      comment={comment}
+                                    />
+                                  }
+                                />
+                                <OpenModalButton
+                                  className="FD-Comment-Delete"
+                                  buttonText="Delete"
+                                  onButtonClick={""}
+                                  modalComponent={
+                                    <DeleteComment comment={comment} />
+                                  }
+                                />
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* <i class="fa-regular fa-thumbs-up FD-Posted-Card-Like-Icon"></i>
-            <i class="fa-regular fa-comment FD-Posted-Card-Comment-Icon"></i> */}
             </div>
           ))}
         </>

@@ -11,7 +11,19 @@ def get_posts():
     Query for all posts
     """
     posts = Post.query.all()
-    return {'posts': [post.to_dict() for post in posts]}
+
+    if posts:
+        posts_with_users = []
+        for post in posts:
+            post_data = post.to_dict()
+            user_data = post.user.to_dict()
+            post_with_users = {'post': post_data, 'user': user_data}
+            posts_with_users.append(post_with_users)
+
+        return {'posts': posts_with_users}
+    else:
+        return {'post': []}
+
 
 
 @post_routes.route('/feed/newPost/<int:user_id>', methods=['POST'])
@@ -68,7 +80,17 @@ def delete_post(post_id):
 def get_post_comments():
 
     comments = Comment.query.all()
-    return {'comments': [comment.to_dict() for comment in comments]}
+
+    if comments:
+        comments_with_users = []
+        for comment in comments:
+            comment_data = comment.to_dict()
+            user_data = comment.user.to_dict()
+            comment_with_user = {'comment': comment_data, 'user': user_data}
+            comments_with_users.append(comment_with_user)
+        return {'comments': comments_with_users}
+    else:
+        return {'comments': []}
 
 
 @post_routes.route('/feed/<int:post_id>/newComment/<int:user_id>', methods=['POST'])

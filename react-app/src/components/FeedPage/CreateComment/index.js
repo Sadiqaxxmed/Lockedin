@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { thunkCreateComment } from "../../../store/comment";
+import { thunkCreateComment, thunkGetComments } from "../../../store/comment";
 import { useModal } from "../../../context/Modal";
 
 import './CreateComment.css'

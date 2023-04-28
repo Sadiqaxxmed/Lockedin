@@ -13,8 +13,8 @@ const DeleteComment = ({comment}) => {
 
     const userId = useSelector(state => state.session.user?.id)
 
-    const deletedComment = comment.comment
-    const commentId = comment.id
+    const deletedComment = comment.comment.comment
+    const commentId = comment.comment.id
 
 
 

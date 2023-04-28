@@ -13,10 +13,10 @@ const UpdateComment = (props) => {
   const dispatch = useDispatch()
   const { closeModal } = useModal()
 
-  const [updateComment, setUpdateComment] = useState(comment.comment)
+  const [updateComment, setUpdateComment] = useState(comment.comment.comment)
 
   const postId = post.id
-  const commentId = comment.id
+  const commentId = comment.comment.id
 
   const handleUpdate = (e) => {
     e.preventDefault();

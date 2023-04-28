@@ -44,7 +44,9 @@ export const actionDeleteComment = (commentId, comment) => {
 const normalizeComments = (comments) => {
   const normalized = {};
   comments.forEach((comment) => {
-    normalized[comment.id] = comment;
+    comment.comment.user = comment.user
+    delete comment.user
+    normalized[comment.comment.id] = comment;
   });
   return normalized;
 };
@@ -75,6 +77,7 @@ export const thunkCreateComment = (comment, userId, postId) => async (dispatch) 
     if (response.ok) {
       const comment = await response.json();
       dispatch(actionCreateComments(comment.comment));
+      dispatch(thunkGetComments())
       return comment;
     }
   };
@@ -91,6 +94,7 @@ export const thunkCreateComment = (comment, userId, postId) => async (dispatch) 
     if (response.ok) {
       const comment = await response.json();
       dispatch(actionUpdateComment(commentId, comment.comment));
+      dispatch(thunkGetComments())
       return comment;
     }
   };
@@ -119,13 +123,13 @@ const commentsReducer = (state = initialState, action) => {
       return { ...state, allComments: { ...action.comments } };
     case CREATE_COMMENT:
       const createState = { ...state, allComments: { ...state.allComments } }
-      createState.allComments[action.comment.id] = action.comment
+      createState.allComments[action.comment.id] = { comment: action.comment }
       return createState
     case UPDATE_COMMENT:
-      return { ...state, allComments: { ...state.allComments, [action.commentId]: action.comment } };
+      return { ...state, allComments: { ...state.allComments, [action.commentId]: {comment: action.comment}} };
     case DELETE_COMMENT:
       const deleteState = { ...state, allComments: { ...state.allComments } }
-      delete deleteState.allComments[action.commentId]
+      delete deleteState.allComments.comment[action.commentId]
       return deleteState
     default:
       return state;
