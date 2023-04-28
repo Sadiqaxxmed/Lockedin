@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
 
 import "./FeedPage.css";
 
@@ -68,8 +67,9 @@ function FeedPage() {
     return postComments;
   }
 
-  return (
+  return currUser && (
     <div className="FD-main-div">
+
       <div className="FD-Post-Card">
         <img className="FD-Post-Card-Img" src={currUser?.profileImage}></img>
         <div>
