@@ -1,5 +1,4 @@
 .signup-form-modal {
-
   /* margin-top: 20px; */
   height: 640px;
 }
@@ -11,6 +10,7 @@
   position: absolute;
   top: 5px;
   left: 150px;
+  margin: 0;
 
 }
 
@@ -30,4 +30,8 @@
   position: absolute;
   top: 120px;
   left: 20px;
+}
+
+.SG-Email-Err {
+  font-size: 10px;
 }
