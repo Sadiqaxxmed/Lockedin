@@ -1,5 +1,5 @@
 body {
-  height: 100vw;
+  height: fit-content;
   padding-top: 150px;
   width: 100%;
   background-color: rgb(243, 242, 239)
