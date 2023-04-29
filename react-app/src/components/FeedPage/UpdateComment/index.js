@@ -12,14 +12,25 @@ const UpdateComment = (props) => {
   const history = useHistory()
   const dispatch = useDispatch()
   const { closeModal } = useModal()
+  const [errors, setErrors] = useState({});
+
 
   const [updateComment, setUpdateComment] = useState(comment.comment.comment)
 
   const postId = post.id
   const commentId = comment.comment.id
 
-  const handleUpdate = (e) => {
+  const handleUpdateComment = (e) => {
     e.preventDefault();
+
+    let err = {}
+
+    if (updateComment.length <= 0) {
+      err.emptyComment = 'Empty field cannot be submitted.'
+    }
+
+    if (Object.values(err).length) return setErrors(err)
+
     closeModal();
     dispatch(thunkUpdateComment(postId, commentId, updateComment));
     return history.push('/feed');
@@ -27,10 +38,11 @@ const UpdateComment = (props) => {
 
   return (
     <div className="FD-Update-Comment">
-      <h3 className="FD-Title">Edit Post!</h3>
+      <h3 className="FD-Title">Edit Comment!</h3>
+      {errors.emptyComment ? <div className="CM-Empty-Errors">{errors.emptyComment}</div> : null}
       <form
         className="PS-Form"
-        onSubmit={handleUpdate}
+        onSubmit={handleUpdateComment}
         method="PUT"
         encType="multipart/form-data"
       >
@@ -44,7 +56,7 @@ const UpdateComment = (props) => {
             required
           />
         </div>
-        <div className="FD-Del-Button" onClick={handleUpdate} type="submit">Edit</div>
+        <div className="FD-Del-Button" onClick={handleUpdateComment} type="submit">Edit</div>
       </form>
     </div>
   );

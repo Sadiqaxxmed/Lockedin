@@ -11,6 +11,7 @@ const CreatePost = () => {
   const history = useHistory();
   const dispatch = useDispatch()
   const { closeModal } = useModal()
+  const [errors, setErrors] = useState({});
   const [post, setPost] = useState('')
 
   const user = useSelector(state => state.session.user?.id)
@@ -19,6 +20,13 @@ const CreatePost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let err = {}
+
+    if (post.length <= 0) {
+      err.emptyPost = 'Empty field cannot be submitted.'
+    }
+
+    if (Object.values(err).length) return setErrors(err)
 
     const formData = new FormData();
 
@@ -34,6 +42,7 @@ const CreatePost = () => {
   return (
     <div className="FD-form">
       <h3 className="FD-Title">Start a Post!</h3>
+      {errors.emptyPost ? <div className="PS-Empty-Errors">{errors.emptyPost}</div> : null}
       <form
         className="PS-Form"
         onSubmit={handleSubmit}
