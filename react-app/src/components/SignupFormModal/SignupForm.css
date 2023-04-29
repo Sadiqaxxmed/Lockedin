@@ -1,10 +1,9 @@
 .signup-form-modal {
   /* margin-top: 20px; */
-  height: 640px;
+  height: 650px;
 }
 
 .signup-title {
-
   font-size: 40px;
   color:  rgb(2, 102, 192);
   position: absolute;
@@ -17,21 +16,27 @@
 .SM-Text {
   font-size: 10px;
   margin-left: 10px;
+  /* margin-top: 0; */
+  /* margin-bottom: 0; */
 }
 
 
 
 .SM-Input {
   margin-left: 10px;
+  /* margin-top: 0;
+  margin-bottom: 0; */
   width: 350px;
 }
 
 .SM {
   position: absolute;
-  top: 120px;
+  top: 70px;
   left: 20px;
 }
 
 .SG-Email-Err {
+  color:  rgb(2, 102, 192);
   font-size: 10px;
+  margin: 0;
 }

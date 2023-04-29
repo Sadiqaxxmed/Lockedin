@@ -11,6 +11,7 @@ const CreateComment = (post) => {
   const history = useHistory();
   const dispatch = useDispatch()
   const { closeModal } = useModal()
+  const [errors, setErrors] = useState({});
   const [comment, setComment] = useState('')
 
   const user = useSelector(state => state.session.user?.id)
@@ -22,8 +23,16 @@ const CreateComment = (post) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
+    let err = {}
 
+    if (comment.length <= 0) {
+      err.emptyComment = 'Empty field cannot be submitted.'
+    }
+
+    if (Object.values(err).length) return setErrors(err)
+
+
+    const formData = new FormData();
 
     formData.append('comment', comment)
     formData.append('userId', user)
@@ -39,6 +48,7 @@ const CreateComment = (post) => {
   return (
     <div className="FD-Post-Comment">
       <h3 className="FD-Title">Leave a Comment!</h3>
+      {errors.emptyComment ? <div className="CM-Empty-Errors">{errors.emptyComment}</div> : null}
       <form
         className="PS-Form"
         onSubmit={handleSubmit}

@@ -2,7 +2,7 @@
   height: 400px;
 }
 
-.FD-Title{
+.FD-Title {
   color: rgb(2, 102, 192);
   position: absolute;
   font-size: 20px;
@@ -11,19 +11,27 @@
   font-weight: 600;
   top: 40px;
   left: 80px;
+  margin: 0;
 }
+
+.PS-Empty-Errors {
+  position: absolute;
+  top: 80px;
+  left: 60px;
+  color: rgb(2, 102, 192);
+}
+
 .FD-Post_Div {
   position: absolute;
   top: 115px;
   left: 60px;
 }
 
-.FD-Post{
-
+.FD-Post {
   resize: none;
 }
 
-.FD-Del-Button{
+.FD-Del-Button {
   position: absolute;
   display: flex;
   justify-content: center;
