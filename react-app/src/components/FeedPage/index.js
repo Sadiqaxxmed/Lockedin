@@ -68,7 +68,19 @@ function FeedPage() {
   }
 
   return currUser && (
+    <>
+
+
     <div className="FD-main-div">
+
+    <div className="FD-Profile-SideCard">
+      <img className="FD-Header-SideCard-Img" src={currUser?.headerImage}></img>
+      <img className="FD-Profile-SideCard-Img" src={currUser?.profileImage}></img>
+      <div className="FD-Profile-SideCard-Info">
+        <p className="FD-Profile-SideCard-Name">{currUser?.firstname} {currUser?.lastname}</p>
+        <p className="FD-Profile-SideCard-Occupation">{currUser?.occupation}</p>
+      </div>
+    </div>
 
       <div className="FD-Post-Card">
         <img className="FD-Post-Card-Img" src={currUser?.profileImage}></img>
@@ -186,7 +198,27 @@ function FeedPage() {
           ))}
         </>
       </div>
+
+      <div className="FD-LockedInNews-SideCard">
+        <p className="FD-LockedInNews-Title"> LockedIn News</p>
+
+        <ul className="FD-News-List">
+          <li className="FD-List-Text">Senators grill SVB, Signature execs</li>
+          <p className="FD-Secondary-Text">Top news • 5,050 readers</p>
+
+          <li className="FD-List-Text">Tesla votes down succession plan</li>
+          <p className="FD-Secondary-Text">2h ago • 5,854 readers</p>
+
+          <li className="FD-List-Text">Zoom invests in buzzy AI startup</li>
+          <p className="FD-Secondary-Text">1h ago • 746 readers</p>
+
+          <li className="FD-List-Text">'Taco Tuesday' trademark under fire</li>
+          <p className="FD-Secondary-Text">3h ago • 2,710 readers</p>
+        </ul>
+
+      </div>
     </div>
+    </>
   );
 }
 
