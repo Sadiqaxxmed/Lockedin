@@ -1,5 +1,5 @@
 body {
-  height: fit-content;
+  /* height: fit-content; */
   padding-top: 150px;
   width: 100%;
   background-color: rgb(243, 242, 239)
@@ -7,6 +7,7 @@ body {
 
 .FD-main-div {
   display: inline-flex;
+  height: fit-content;
 }
 
 .FD-Profile-SideCard {
@@ -25,7 +26,6 @@ body {
   position: absolute;
   top: 35px;
   left: 80px;
-  /* margin-left: 15px; */
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -159,14 +159,17 @@ body {
 
 .FD-Posted-Card {
   position: relative;
-  height: 180px;
+  min-height: 180px;
+  max-height: fit-content;
   width: 560px;
-  overflow: auto;
+  padding-bottom: 10px;
   margin-bottom: 10px;
   background-color: white;
   border: 3px;
   border-radius: 10px;
 }
+
+
 
 .FD-Post-Card-Img {
   object-fit: cover;
@@ -189,20 +192,80 @@ body {
 }
 
 .FD-Posted-Card-Name {
+  font-family: sans-serif;
   position: absolute;
   margin-left: 75px;
   font-size: 16px;
   font-weight: 600;
+}
 
+.FD-Posted-Card-Occupation {
+  font-family: sans-serif;
+  position: absolute;
+  top: 25px;
+  margin-left: 75px;
+  font-size: 12px;
+  color: grey;
 }
 
 .FD-Posted-Card-Description {
   position: absolute;
   top: 70px;
+  font-family: sans-serif;
   font-size: 14px;
   margin-left: 15px;
   max-width: 600px;
+}
 
+
+.FD-Posted-Like-Comment-Div {
+  display: inline-flex;
+  position: absolute;
+  top: 120px;
+  left: 30px;
+  justify-content: space-around;
+}
+
+
+.comment-icon-div {
+  display: inline-flex;
+  width: 250px;
+  justify-content: center;
+}
+
+.like-icon-div {
+  display: inline-flex;
+  width: 250px;
+  justify-content: center;
+}
+
+.like-icon-div:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(235 235 235);
+}
+
+.comment-icon-div:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(235 235 235);
+}
+
+.FD-Posted-Like-Icon {
+  padding-top: 17px;
+  padding-right: 5px;
+  color: rgb(102, 102, 102);
+}
+
+.FD-Posted-Like-Text {
+  color: rgb(102, 102, 102);
+  font-family: sans-serif;
+
+}
+
+.FD-Posted-Comment-Text {
+  color: rgb(102, 102, 102);
+  font-family: sans-serif;
 }
 
 .FD-Posted-Card-Update {
@@ -232,8 +295,9 @@ body {
 }
 
 .FD-Comment-Div {
-  position: absolute;
-  top: 120px;
+  position: relative;
+  padding-top: 180px;
+  height: fit-content;
 }
 
 .FD-Comment-Card-Img {
@@ -251,17 +315,68 @@ body {
   margin-left: 5px;
   border: 1px solid grey;
   border-radius: 15px;
+
+  position: absolute;
+  padding-left: 10px;
+  padding-top: 10px;
+  color: grey;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: sans-serif;
+  align-items: center;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 40px;
 }
+
+.FD-Comment-Input:hover {
+  cursor: pointer;
+  background-color: rgb(243, 242, 239)
+}
+
 .FD-Comment-Bottom {
-  margin-top: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: fit-content;
+
 }
+
 .FD-Posted-Comment{
   display: inline-flex;
 }
 
+.FD-Posted-Comment-Info-Div {
+  background-color: rgb(242 242 242);
+  width: 490px;
+  margin-left: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.FD-Posted-Comment-Name {
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 14px;
+  padding-left: 10px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.FD-Posted-Comment-Occupation {
+  font-family: sans-serif;
+  font-weight: lighter;
+  color: rgb(97 97 97);
+  font-size: 10px;
+  padding-left: 10px;
+  margin: 0;
+}
+
 .FD-Comment {
+  font-family: sans-serif;
   padding-left: 10px;
   margin-top: 8px;
+  font-size: 14px;
 }
 
 
@@ -284,19 +399,30 @@ body {
   text-align: center;
   top: 15px;
   right: 25px;
+  color: rgb(102, 102, 102);
 }
 
 .FD-Comment-Menu-Main {
   text-align: center;
-  position: absolute;
-  right: 5px;
+  position: relative;
+  padding-top: 10px;
+  top: 3px;
+  right: 30px;
 }
+
+.FD-Comment-Menu-Icon {
+  color: rgb(90 90 90);
+  position: relative;
+  right: -250px;
+  top: -75px;
+}
+
 
 .FD-Menu-Options {
   position: absolute;
-  background-color: rgb(241, 240, 237);
-  top: 15px;
-  right: -20px;
+  background-color: grey;
+  top: 5px;
+  right: 25px;
   border-radius: 5px;
   height: 60px;
   width: 80px;
@@ -305,11 +431,15 @@ body {
 
 .FD-Comment-Menu-Options {
   position: absolute;
-  background-color: rgb(241, 240, 237);
+  background-color: grey;
   border-radius: 5px;
   height: 60px;
   width: 80px;
-  top: -10px;
-  right: 20px;
-  z-index: 100;
+  top: -60px;
+  right: 10px;
+  /* z-index: 100; */
+}
+
+.hidden {
+  display: none;
 }

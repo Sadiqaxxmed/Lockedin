@@ -23,16 +23,37 @@ function FeedPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [postCardId, setPostCardId] = useState(null);
   const [commentId, setCommentId] = useState(null);
+  const [commentDropDownVisible, setCommentDropDownVisible] = useState(false);
+  const [commentPost, setCommentPost] = useState(null)
+
+
 
   const currUser = useSelector((state) => state.session?.user);
   const posts = Object.values(useSelector((state) => state.posts.allPosts));
   const comments = Object.values(useSelector((state) => state.comments.allComments));
   const postCommentsArr = Object.values(comments);
 
-  useEffect(() => {
-    dispatch(thunkGetPosts());
-    dispatch(thunkGetComments());
-  }, [dispatch]);
+  const closeDropDown = (e) => {
+    if (commentDropDownVisible &&
+        e.target.closest(".FD-Comment-Top") === null &&
+        e.target.closest(".comment-icon-div") === null
+        ) {
+            setCommentDropDownVisible(false)
+        }
+  };
+
+  function getPostComments(postId) {
+    const postComments = [];
+
+    for (let i = 0; i < postCommentsArr.length; i++) {
+      const comment = postCommentsArr[i];
+      if (comment.comment.comment_id === postId) {
+        postComments.push(comment);
+      }
+    }
+
+    return postComments;
+  }
 
   function handleMenu(id) {
     if (!menuOpen && id) {
@@ -54,25 +75,25 @@ function FeedPage() {
     }
   }
 
-  function getPostComments(postId) {
-    const postComments = [];
+  useEffect(() => {
+      document.addEventListener("click", closeDropDown);
+      return () => {
+          document.removeEventListener("click", closeDropDown);
+    };
+  }, [commentDropDownVisible]);
 
-    for (let i = 0; i < postCommentsArr.length; i++) {
-      const comment = postCommentsArr[i];
-      if (comment.comment.comment_id === postId) {
-        postComments.push(comment);
-      }
-    }
 
-    return postComments;
-  }
+  useEffect(() => {
+    dispatch(thunkGetPosts());
+    dispatch(thunkGetComments());
+  }, [dispatch]);
 
   return currUser && (
     <>
-
-
+    {/* MAIN DIV */}
     <div className="FD-main-div">
 
+    {/* PROFILE SIDE CARD DIV  */}
     <div className="FD-Profile-SideCard">
       <img className="FD-Header-SideCard-Img" src={currUser?.headerImage}></img>
       <img className="FD-Profile-SideCard-Img" src={currUser?.profileImage}></img>
@@ -82,6 +103,7 @@ function FeedPage() {
       </div>
     </div>
 
+    {/* START A POST DIV  */}
       <div className="FD-Post-Card">
         <img className="FD-Post-Card-Img" src={currUser?.profileImage}></img>
         <div>
@@ -92,10 +114,16 @@ function FeedPage() {
           />
         </div>
       </div>
+
+      {/* MAIN POSTS FEED DIV */}
       <div className="FD-Post-Div">
         <>
           {posts.map((post) => (
+
+            // POSTED CARD DIV
             <div className="FD-Posted-Card">
+
+            {/* POSTED CARD USER INFO */}
               <img
                 className="FD-Posted-Card-Img"
                 src={post.post.user?.profileImage}
@@ -103,6 +131,9 @@ function FeedPage() {
               <h3 className="FD-Posted-Card-Name">
                 {post.post.user?.firstname} {post.post.user?.lastname}
               </h3>
+              <p className="FD-Posted-Card-Occupation">{post.post.user?.occupation}</p>
+
+              {/* POSTED CARD EDIT ICON */}
               {currUser?.id === post.post.owner_id && (
                 <div className="FD-Menu-Main">
                   <i
@@ -128,15 +159,36 @@ function FeedPage() {
                 </div>
               )}
 
+              {/* POSTED CARD: POST/LIKE/COMMENT/ICONS */}
               <p className="FD-Posted-Card-Description">{post?.post.post}</p>
-              <div className="FD-Comment-Div">
+              <div className="FD-Posted-Like-Comment-Div">
+                <div className="like-icon-div">
+                <i class="fa-regular fa-thumbs-up FD-Posted-Like-Icon"></i>
+                <p className="FD-Posted-Like-Text">Like</p>
+              </div>
+              <div
+                    onClick={() => {
+                        setCommentDropDownVisible(!commentDropDownVisible);
+                        setCommentPost(post.post.id);
+                    }}
+                    className="comment-icon-div"
+                >
+                <i class="fa-regular fa-comment-dots FD-Posted-Like-Icon"></i>
+                <p className="FD-Posted-Comment-Text">Comment</p>
+                </div>
+              </div>
+
+              {commentPost === post.post.id && (
+              // COMMENT DIV
+              <div className={ commentDropDownVisible ? "FD-Comment-Div" : "hidden"}>
+                {/* LEAVE A COMMENT SECTION */}
                 <div className="FD-Comment-Top">
                   <div className="FD-Comment-Input-Div">
                     <img
                       className="FD-Comment-Card-Img"
                       src={currUser?.profileImage}
                     ></img>
-                    <div>
+                    <div className="FD-Comment-Card">
                       <OpenModalButton
                         buttonText="Leave a comment..."
                         className="FD-Comment-Input"
@@ -145,9 +197,12 @@ function FeedPage() {
                     </div>
                   </div>
 
+                  {/* COMMENTS SECTION: USR INFO & COMMENT POSTED*/}
                   {getPostComments(post.post.id).map((comment) => (
                     <div className="FD-Comment-Bottom">
                       <div className="FD-Posted-Comment">
+
+                        <div className="FD-Posted-Comment-Img">
                         <img
                           className="FD-Comment-Card-Img"
                           src={
@@ -156,11 +211,19 @@ function FeedPage() {
                               : "https://avatars.githubusercontent.com/u/43020644?v=4"
                           }
                         ></img>
+                        </div>
+
+                        <div className="FD-Posted-Comment-Info-Div">
+                        <p className="FD-Posted-Comment-Name">{comment.comment.user.firstname} {comment.comment.user.lastname}</p>
+                        <p className="FD-Posted-Comment-Occupation">{comment.comment.user.occupation}</p>
                         <p className="FD-Comment">{comment.comment.comment}</p>
+
+
+                        {/* COMMENT EDIT ICON */}
                         {currUser?.id === comment.comment.owner_id && (
                           <div className="FD-Comment-Menu-Main">
                             <i
-                              class="fa-solid fa-ellipsis"
+                              class="fa-solid fa-ellipsis FD-Comment-Menu-Icon"
                               onClick={(e) => commentMenu(comment.comment.id)}
                             ></i>
 
@@ -189,34 +252,34 @@ function FeedPage() {
                             )}
                           </div>
                         )}
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
+              )}
             </div>
+
           ))}
         </>
       </div>
 
+      {/* LOCKEDIN NEWS DIV */}
       <div className="FD-LockedInNews-SideCard">
         <p className="FD-LockedInNews-Title"> LockedIn News</p>
-
         <ul className="FD-News-List">
           <li className="FD-List-Text">Senators grill SVB, Signature execs</li>
           <p className="FD-Secondary-Text">Top news • 5,050 readers</p>
-
           <li className="FD-List-Text">Tesla votes down succession plan</li>
           <p className="FD-Secondary-Text">2h ago • 5,854 readers</p>
-
           <li className="FD-List-Text">Zoom invests in buzzy AI startup</li>
           <p className="FD-Secondary-Text">1h ago • 746 readers</p>
-
           <li className="FD-List-Text">'Taco Tuesday' trademark under fire</li>
           <p className="FD-Secondary-Text">3h ago • 2,710 readers</p>
         </ul>
-
       </div>
+
     </div>
     </>
   );
