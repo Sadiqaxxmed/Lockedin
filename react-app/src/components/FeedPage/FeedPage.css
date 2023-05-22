@@ -397,9 +397,26 @@ body {
 .FD-Menu-Main {
   position: absolute;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
   top: 15px;
-  right: 25px;
+  right: 20px;
   color: rgb(102, 102, 102);
+}
+
+
+.Post-Menu-Icon {
+  position: relative;
+  top: 4px;
+  /* left: 1px; */
+}
+
+.FD-Menu-Main:hover {
+  border-radius: 100%;
+  cursor: pointer;
+  background-color: rgb(243, 242, 239)
 }
 
 .FD-Comment-Menu-Main {
@@ -408,6 +425,7 @@ body {
   padding-top: 10px;
   top: 3px;
   right: 30px;
+  border-radius: 10px;
 }
 
 .FD-Comment-Menu-Icon {
@@ -417,6 +435,9 @@ body {
   top: -75px;
 }
 
+.FD-Comment-Menu-Icon:hover {
+  cursor: pointer;
+}
 
 .FD-Menu-Options {
   position: absolute;
@@ -431,15 +452,98 @@ body {
 
 .FD-Comment-Menu-Options {
   position: absolute;
-  background-color: grey;
+  background-color: rgb(243, 242, 239);
   border-radius: 5px;
   height: 60px;
   width: 80px;
   top: -60px;
   right: 10px;
-  /* z-index: 100; */
 }
 
+.FD-Posted-Menu-Edit-Div {
+  background-color: rgb(254, 251, 251);
+  height: 32px;
+  width: 80px;
+}
+
+.FD-Comment-Menu-Edit-Div {
+  background-color: rgb(254, 251, 251);
+  height: 32px;
+  width: 80px;
+}
+
+.FD-Posted-Menu-Edit-Div:hover {
+  cursor: pointer;
+  background-color: rgb(243, 242, 239)
+}
+
+.FD-Comment-Menu-Edit-Div:hover {
+  cursor: pointer;
+  background-color: rgb(243, 242, 239)
+}
+
+
+.FD-Posted-Menu-Delete-Div {
+  background-color: rgb(254, 251, 251);
+  height: 32px;
+  width: 80px;
+}
+
+.FD-Comment-Menu-Delete-Div {
+  background-color: rgb(254, 251, 251);
+  height: 32px;
+  width: 80px;
+}
+
+.FD-Posted-Menu-Delete-Div:hover {
+  cursor: pointer;
+  background-color: rgb(243, 242, 239)
+}
+
+.FD-Comment-Menu-Delete-Div:hover {
+  cursor: pointer;
+  background-color: rgb(243, 242, 239)
+}
+
+.FD-Posted-Card-Update {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  position: relative;
+  top: 5px;
+  left: 0;
+}
+
+.FD-Comment-Update {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  position: relative;
+  top: 8px;
+  left: 0;
+}
+
+.FD-Posted-Card-Delete {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  position: relative;
+  top: 5px;
+  left: 0;
+}
+
+.FD-Comment-Delete {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  position: relative;
+  top: 8px;
+  left: 0;
+}
 .hidden {
   display: none;
 }
