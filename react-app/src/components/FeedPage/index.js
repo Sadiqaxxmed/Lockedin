@@ -137,23 +137,31 @@ function FeedPage() {
               {currUser?.id === post.post.owner_id && (
                 <div className="FD-Menu-Main">
                   <i
-                    class="fa-solid fa-ellipsis"
+                    class="fa-solid fa-ellipsis Post-Menu-Icon"
                     onClick={(e) => handleMenu(post.post.id)}
                   ></i>
                   {menuOpen && postCardId === post.post.id && (
+
                     <div className="FD-Menu-Options">
+
+                      <div className="FD-Posted-Menu-Edit-Div">
                       <OpenModalButton
                         className="FD-Posted-Card-Update"
                         buttonText="Edit"
                         onButtonClick={""}
                         modalComponent={<UpdatePost post={post.post} />}
                       />
+                      </div>
+                      
+                      <div className="FD-Posted-Menu-Delete-Div">
                       <OpenModalButton
                         className="FD-Posted-Card-Delete"
                         buttonText="Delete"
                         onButtonClick={""}
                         modalComponent={<DeletePost post={post.post} />}
                       />
+                      </div>
+
                     </div>
                   )}
                 </div>
@@ -228,7 +236,10 @@ function FeedPage() {
                             ></i>
 
                             {menuOpen && commentId === comment.comment.id && (
+
                               <div className="FD-Comment-Menu-Options">
+
+                                <div className="FD-Comment-Menu-Edit-Div">
                                 <OpenModalButton
                                   className="FD-Comment-Update"
                                   buttonText="Edit"
@@ -240,6 +251,10 @@ function FeedPage() {
                                     />
                                   }
                                 />
+                                </div>
+
+
+                                <div className="FD-Comment-Menu-Delete-Div">
                                 <OpenModalButton
                                   className="FD-Comment-Delete"
                                   buttonText="Delete"
@@ -248,7 +263,11 @@ function FeedPage() {
                                     <DeleteComment comment={comment} />
                                   }
                                 />
+                                </div>
+
+
                               </div>
+
                             )}
                           </div>
                         )}
