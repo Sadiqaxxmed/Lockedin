@@ -1,6 +1,6 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import Post, User, Comment, db
+from app.models import Post, User, Comment, liked_posts, db
 
 post_routes = Blueprint('posts', __name__)
 
@@ -146,3 +146,48 @@ def delete_comment(comment_id):
         return {'message': 'Comment deleted successfully', 'status': 200}
     else:
         return {'error': 'Comment not found', 'status': 404}
+    
+
+@post_routes.route('/likedPosts/<int:user_id>')
+def get_liked_posts(user_id):
+    """
+    GET all of user liked post 
+    """
+
+    user = User.query.get(user_id)
+    if not user:
+        return {'error': 'User not found'}, 404
+
+    liked_posts_query = db.session.query(Post).join(liked_posts).filter_by(owner_id=user_id).all()
+
+    return {'likedPosts': [post.to_dict() for post in liked_posts_query]}
+
+@post_routes.route('/likedPosts/<int:post_id>/<int:user_id>', methods=['PUT'])
+def update_liked_posts(post_id, user_id):
+    """
+    Query to remove like from a posts
+    """
+
+    def filter_likes(post):
+        if post.id != post_id:
+            return True
+        return False
+
+    user = User.query.get(user_id)
+    user.likes = list(filter(filter_likes, user.likes))
+    db.session.commit()
+
+    return {'message': 'Liked post successfully removed', 'status': 200}
+
+@post_routes.route('likePost/<int:post_id>', methods=['POST'])
+@login_required
+def add_liked_post(post_id):
+    post = Post.query.get(post_id)
+
+    if not post:
+        return jsonify(message='Post not found'), 404
+
+    current_user.likes.append(post)
+    db.session.commit()
+
+    return jsonify(message='Post added to liked posts')
