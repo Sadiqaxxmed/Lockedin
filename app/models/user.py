@@ -21,6 +21,8 @@ class User(db.Model, UserMixin):
     posts = db.relationship('Post', back_populates='user')
     comments = db.relationship('Comment', back_populates='user')
 
+    likes = db.relationship('Post', secondary='liked_posts', back_populates='likes')
+
 
     @property
     def password(self):
