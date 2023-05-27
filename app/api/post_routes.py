@@ -148,7 +148,7 @@ def delete_comment(comment_id):
         return {'error': 'Comment not found', 'status': 404}
     
 
-@post_routes.route('/likedPosts/<int:user_id>')
+@post_routes.route('/feed/likedPosts/<int:user_id>')
 def get_liked_posts(user_id):
     """
     GET all of user liked post 
@@ -162,7 +162,8 @@ def get_liked_posts(user_id):
 
     return {'likedPosts': [post.to_dict() for post in liked_posts_query]}
 
-@post_routes.route('/likedPosts/<int:post_id>/<int:user_id>', methods=['PUT'])
+@post_routes.route('/feed/unlikePost/<int:post_id>/<int:user_id>', methods=['PUT'])
+@login_required
 def update_liked_posts(post_id, user_id):
     """
     Query to remove like from a posts
@@ -179,9 +180,9 @@ def update_liked_posts(post_id, user_id):
 
     return {'message': 'Liked post successfully removed', 'status': 200}
 
-@post_routes.route('likePost/<int:post_id>', methods=['POST'])
+@post_routes.route('/feed/likePost/<int:post_id>/<int:user_id>', methods=['POST'])
 @login_required
-def add_liked_post(post_id):
+def add_liked_post(post_id, user_id):
     post = Post.query.get(post_id)
 
     if not post:

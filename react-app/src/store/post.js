@@ -6,6 +6,9 @@ const GET_POSTS     = 'POST/GET_POSTS';
 const CREATE_POST   = 'POST/CREATE_POST';
 const UPDATE_POST   = 'POST/UPDATE_POST';
 const DELETE_POST   = 'POST/DELETE_POST';
+const LIKE_POST     = 'POST/LIKE_POST';
+const LIKED_POSTS   = 'POST/LIKED_POSTS';
+const UNLIKE_POST   = 'POST/UNLIKE_POST';
 
 
 // -------------------------------------------------------------------- ACTION
@@ -39,6 +42,28 @@ export const actionDeletePost = (postId, post) => {
     postId
   }
 }
+
+export const actionLikePost = (posts) => {
+  return {
+    type: LIKE_POST,
+    posts
+  }
+}
+
+export const actionLikedPosts = (posts) => {
+  return {
+    type: LIKED_POSTS,
+    posts
+  }
+}
+
+export const actionUnlikePost = (posts) => {
+  return {
+    type: UNLIKE_POST,
+    posts
+  }
+}
+
 // -------------------------------------------------------------------- HELPER
 
 
@@ -52,6 +77,16 @@ const normalizePosts = (posts) => {
   });
   return normalized;
 };
+
+const normalizeLikedPost = (posts) => {
+  let normalize = {};
+  posts.forEach(post => {
+    normalize[post.id] = post;
+  })
+  return normalize;
+}
+
+
 
 
 // -------------------------------------------------------------------- THUNK
@@ -75,7 +110,6 @@ export const thunkCreatePost = (post, user_id) => async (dispatch) => {
 
   if (response.ok) {
     const post = await response.json();
-    console.log('ThunkPost', post)
     dispatch(actionCreatePost(post.Post));
     dispatch(thunkGetPosts())
     return post;
@@ -110,11 +144,40 @@ export const thunkDeletePost = ({postId, userId}) => async (dispatch) => {
   return { error: 'There was a problem deleting the post', statusCode: response.status };
 }
 
+export const thunkLikedPosts = (userId) => async (dispatch) => {
+  const response = await fetch(`/api/post/feed/likedPosts/${userId}`)
+
+  if (response.ok) {
+    const allUserposts = await response.json();
+    console.log('THUNK RESPONSE', allUserposts)
+
+    const normalized = normalizeLikedPost(allUserposts.likedPosts)
+    dispatch(actionLikedPosts(normalized))
+    return;
+  }
+}
+
+export const thunkLikePost = (postId, userId) => async (dispatch) => {
+  const response = await fetch(`/api/post/feed/likePost/${postId}/${userId}`, {method:'POST'})
+
+  if (response.ok) {
+    dispatch(thunkLikedPosts(userId))
+  }
+}
+
+export const thunkUnlikePost = (postId, userId) => async (dispatch) => {
+  const response = await fetch(`/api/post/feed/unlikePost/${postId}/${userId}`, {method:'PUT'}) 
+  if (response.ok) {
+    dispatch(thunkLikedPosts(userId))
+    return;
+  }
+}
 
 // -------------------------------------------------------------------- INITIAL STATE
 
 const initialState = {
   allPosts: {},
+  likedPosts: {}
 };
 
 // -------------------------------------------------------------------- REDCUER
@@ -133,6 +196,8 @@ const postsReducer = (state = initialState, action) => {
       const newState = { ...state, allPosts: { ...state.allPosts } }
       delete newState.allPosts[action.postId]
       return newState
+    case LIKED_POSTS:
+      return { ...state, likedPosts: { ...action.posts } }
     default:
       return state;
   }

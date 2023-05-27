@@ -257,10 +257,20 @@ body {
   color: rgb(102, 102, 102);
 }
 
+.FD-Posted-Liked-Icon {
+  padding-top: 17px;
+  padding-right: 5px;
+  color: rgb(80, 141, 226);
+}
+
 .FD-Posted-Like-Text {
   color: rgb(102, 102, 102);
   font-family: sans-serif;
+}
 
+.FD-Posted-Liked-Text {
+  color: rgb(80, 141, 226);
+  font-family: sans-serif;
 }
 
 .FD-Posted-Comment-Text {
