@@ -15,6 +15,7 @@ import DeletePost from "./DeletePost";
 import CreateComment from "./CreateComment";
 import UpdateComment from "./UpdateComment";
 import DeleteComment from "./DeleteComment";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function FeedPage() {
 
@@ -107,7 +108,9 @@ function FeedPage() {
     {/* PROFILE SIDE CARD DIV  */}
     <div className="FD-Profile-SideCard">
       <img className="FD-Header-SideCard-Img" src={currUser?.headerImage}></img>
+      <Link to={`/profile/${currUser?.id}`}>
       <img className="FD-Profile-SideCard-Img" src={currUser?.profileImage}></img>
+      </Link>
       <div className="FD-Profile-SideCard-Info">
         <p className="FD-Profile-SideCard-Name">{currUser?.firstname} {currUser?.lastname}</p>
         <p className="FD-Profile-SideCard-Occupation">{currUser?.occupation}</p>

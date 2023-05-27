@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import FeedPage from "./components/FeedPage"
 import SplashPage from './components/SplashPage';
+import ProfilePage from "./components/ProfilePage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route exact path="/Feed" >
             <FeedPage />
+          </Route>
+          <Route exact path="/Profile/:user_id" >
+            <ProfilePage />
           </Route>
           <Route excat path="/">
             <SplashPage />
