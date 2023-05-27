@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "./FeedPage.css";
 
-import { thunkGetPosts } from "../../store/post";
+import { thunkGetPosts, thunkLikedPosts, thunkLikePost, thunkUnlikePost} from "../../store/post";
 import { thunkGetComments } from "../../store/comment";
 
 import OpenModalButton from "../OpenModalButton";
@@ -30,6 +30,7 @@ function FeedPage() {
 
   const currUser = useSelector((state) => state.session?.user);
   const posts = Object.values(useSelector((state) => state.posts.allPosts));
+  const likedPosts = Object.values(useSelector(state => state.posts.likedPosts)).map(post => post.id);
   const comments = Object.values(useSelector((state) => state.comments.allComments));
   const postCommentsArr = Object.values(comments);
 
@@ -86,7 +87,17 @@ function FeedPage() {
   useEffect(() => {
     dispatch(thunkGetPosts());
     dispatch(thunkGetComments());
+    dispatch(thunkLikedPosts(currUser.id));
   }, [dispatch]);
+
+  function isLikedPost(postId, userId) {
+
+    if (likedPosts.includes(postId)) {
+      dispatch(thunkUnlikePost(postId, userId))
+    } else dispatch(thunkLikePost(postId, userId))
+
+    return
+  }
 
   return currUser && (
     <>
@@ -171,8 +182,26 @@ function FeedPage() {
               <p className="FD-Posted-Card-Description">{post?.post.post}</p>
               <div className="FD-Posted-Like-Comment-Div">
                 <div className="like-icon-div">
-                <i class="fa-regular fa-thumbs-up FD-Posted-Like-Icon"></i>
-                <p className="FD-Posted-Like-Text">Like</p>
+                  {likedPosts.includes(post.post.id) ? (
+                    <>
+                    <i 
+                      class="fa-solid fa-thumbs-up FD-Posted-Liked-Icon"
+                      onClick={() => isLikedPost(post.post.id, currUser.id)}
+                    ></i>
+                    <p className="FD-Posted-Liked-Text">Like</p>
+                    
+                    </>
+                  ) : (
+                    <>
+                    <i 
+                      class="fa-regular fa-thumbs-up FD-Posted-Like-Icon"
+                      onClick={() => isLikedPost(post.post.id, currUser.id)}
+
+                    ></i>
+                    <p className="FD-Posted-Like-Text">Like</p>
+                    </>
+                  )}
+                
               </div>
               <div
                     onClick={() => {
