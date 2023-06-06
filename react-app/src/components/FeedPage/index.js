@@ -16,6 +16,7 @@ import CreateComment from "./CreateComment";
 import UpdateComment from "./UpdateComment";
 import DeleteComment from "./DeleteComment";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import ProfilePage from "../ProfilePage";
 
 function FeedPage() {
 
@@ -138,10 +139,12 @@ function FeedPage() {
             <div className="FD-Posted-Card">
 
             {/* POSTED CARD USER INFO */}
+            <Link to={`/Profile/${post.post.user?.id}`}>
               <img
                 className="FD-Posted-Card-Img"
                 src={post.post.user?.profileImage}
               ></img>
+            </Link>
               <h3 className="FD-Posted-Card-Name">
                 {post.post.user?.firstname} {post.post.user?.lastname}
               </h3>
