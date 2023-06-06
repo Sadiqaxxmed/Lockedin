@@ -32,7 +32,7 @@ function App() {
           <Route exact path="/Feed" >
             <FeedPage />
           </Route>
-          <Route exact path="/Profile/:user_id" >
+          <Route exact path="/Profile/:userId" >
             <ProfilePage />
           </Route>
           <Route excat path="/">
