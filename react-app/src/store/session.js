@@ -5,6 +5,7 @@ const REMOVE_USER = "session/REMOVE_USER";
 const GET_SINGLE_USER = "session/GET_SINGLE_USER"
 
 const UPDATE_ABOUT    = 'session/UPDATE_ABOUT';
+const DELETE_ABOUT    = 'session/DELETE_ABOUT';
 
 
 // -------------------------------------------------------------------- ACTION
@@ -32,8 +33,14 @@ export const actionUpdateAbout = (userId, about) => {
       about
     };
   };
-  
-  
+
+export const actionDeleteAbout = (userId, about) => {
+	return {
+		type: DELETE_ABOUT,
+		userId,
+		about
+	}
+}
 
 // -------------------------------------------------------------------- SESSION
 
@@ -136,16 +143,12 @@ export const thunkGetSingleUser = (userId) => async (dispatch) => {
 
 export const thunkUpdateAbout = (userId, updateAbout) => async (dispatch) => {
 
-	console.log("THUNK userId", userId)
-	console.log("THUNK updateAbout", updateAbout)
-
     const response = await fetch(`/api/users/about/${userId}/update`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( {updateAbout} )
       }
     );
-	console.log("THUNK RESPONSEE", response)
 
     if (response.ok) {
       const about = await response.json();
@@ -154,6 +157,28 @@ export const thunkUpdateAbout = (userId, updateAbout) => async (dispatch) => {
       return about;
     }
   };
+
+export const thunkDeleteAbout = ({userId}) => async (dispatch) => {
+	const deletedAbout = '';
+
+	const response = await fetch(`/api/users/about/${userId}/delete`, {
+		method:'PUT',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({ deletedAbout })
+	}
+	)
+
+	console.log('response', response)
+
+	if (response.ok) {
+		const deletedAbout = await response.json();
+		dispatch(actionDeleteAbout(userId, deletedAbout))
+		dispatch(thunkGetSingleUser())
+		return deletedAbout;
+	}
+
+	return { error: 'There was a problem deleting the about', statusCode: response.status };
+}
 
 // -------------------------------------------------------------------- INITIAL STATE
 
@@ -169,7 +194,6 @@ export default function reducer(state = initialState, action) {
 		case GET_SINGLE_USER: {
 			const newState = { ...state }
 			newState.singleUser = action.user
-			// newState.user = action.user
 			return newState
 		}
 		case SET_USER:

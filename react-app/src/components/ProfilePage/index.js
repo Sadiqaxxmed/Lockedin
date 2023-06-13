@@ -8,6 +8,7 @@ import { thunkGetSingleUser, thunkUpdateAbout } from '../../store/session';
 import OpenModalButton from "../OpenModalButton";
 
 import UpdateAbout from './UpdateAbout';
+import DeleteAbout from './DeleteAbout';
 
 function ProfilePage() {
 
@@ -74,7 +75,15 @@ function ProfilePage() {
                             </div>
 
                             <div className='PP-About-Delete-Menu-Div'>
-                                <p className='PP-About-Delete-Menu-Text'>Delete</p>
+                            <OpenModalButton
+                                  className="FD-Comment-Delete"
+                                  buttonText="Delete"
+                                  onButtonClick={""}
+                                  modalComponent={
+                                    <DeleteAbout user={currentUser} />
+                                  }
+                                />
+                                {/* <p className='PP-About-Delete-Menu-Text'>Delete</p> */}
                             </div>
                         </div>
                     )}
