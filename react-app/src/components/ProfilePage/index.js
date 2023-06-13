@@ -1,27 +1,36 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-
 import { useSelector, useDispatch } from 'react-redux';
 import './ProfilePage.css';
-import { thunkGetSingleUser } from '../../store/session';
+import { thunkGetSingleUser, thunkUpdateAbout } from '../../store/session';
+
+import OpenModalButton from "../OpenModalButton";
+
+import UpdateAbout from './UpdateAbout';
 
 function ProfilePage() {
-
-    const currUser = useSelector((state) => state.session?.user);
 
     const dispatch = useDispatch();
     const history = useHistory();
     const { userId } = useParams();
-    console.log("CURRENT USERID:", userId)
 
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const currentUser = useSelector((state) => state.session?.user)
+    const user = useSelector((state) => state.session?.singleUser)
+
+  function handleMenu() {
+    if (!menuOpen) {
+        setMenuOpen(true);
+    } else {
+        setMenuOpen(false);
+    }
+  }
 
     useEffect(() => {
         dispatch(thunkGetSingleUser(userId));
     }, [dispatch, userId]);
-
-    const user = useSelector((state) => state.session?.singleUser)
-    console.log("CURRENT USER:", user)
 
 
   return (
@@ -42,7 +51,35 @@ function ProfilePage() {
 
             <div className='PP-User-About-Div'>
                 <h3 className='PP-User-About-Title'>About</h3>
-                <i class="fa-solid fa-pen fa-lg PP-About-Edit-Icon"></i>
+
+                {currentUser?.id === user?.id && (  
+                    <i class="fa-solid fa-pen fa-lg PP-About-Edit-Icon"
+                    onClick={handleMenu}
+                    ></i>
+                )}
+                <div className='PP-About-Menu'>
+                    {menuOpen && (
+                        <div className='PP-About-Menu-Open'>
+                            <div className='PP-About-Edit-Menu-Div'> 
+                                <OpenModalButton
+                                  className="FD-Comment-Update"
+                                  buttonText="Edit"
+                                  onButtonClick={""}
+                                  modalComponent={
+                                    <UpdateAbout
+                                        user={currentUser}
+                                    />
+                                  }
+                                />
+                            </div>
+
+                            <div className='PP-About-Delete-Menu-Div'>
+                                <p className='PP-About-Delete-Menu-Text'>Delete</p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
                 <p className='PP-User-About-Text'>{user?.about}</p>
             </div>
 

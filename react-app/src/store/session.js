@@ -1,7 +1,13 @@
-// constants
+// -------------------------------------------------------------------- CONSTANT
+
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const GET_SINGLE_USER = "session/GET_SINGLE_USER"
+
+const UPDATE_ABOUT    = 'session/UPDATE_ABOUT';
+
+
+// -------------------------------------------------------------------- ACTION
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -18,7 +24,18 @@ export const actionSingleUser = (user) => {
 		user
 	}
   }
+
+export const actionUpdateAbout = (userId, about) => {
+    return {
+      type: UPDATE_ABOUT,
+      userId,
+      about
+    };
+  };
   
+  
+
+// -------------------------------------------------------------------- SESSION
 
 export const authenticate = () => async (dispatch) => {
 	const response = await fetch("/api/auth/", {
@@ -105,32 +122,54 @@ export const signUp = (firstname, lastname, email, occupation, profileImage, hea
 	}
 };
 
+// -------------------------------------------------------------------- THUNK
+
 export const thunkGetSingleUser = (userId) => async (dispatch) => {
-
 	const res = await fetch(`/api/users/${userId}`)
-	console.log("THUNK RES", res)
-
   
 	if (res.ok) {
 		const user = await res.json();
-		console.log("THUNK USER", user)
 		dispatch(actionSingleUser(user))
 		return user;
 	}
   }
 
+export const thunkUpdateAbout = (userId, updateAbout) => async (dispatch) => {
+
+	console.log("THUNK userId", userId)
+	console.log("THUNK updateAbout", updateAbout)
+
+    const response = await fetch(`/api/users/about/${userId}/update`, {
+        method: "PUT",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify( {updateAbout} )
+      }
+    );
+	console.log("THUNK RESPONSEE", response)
+
+    if (response.ok) {
+      const about = await response.json();
+      dispatch(actionUpdateAbout(userId, about));
+      dispatch(thunkGetSingleUser())
+      return about;
+    }
+  };
+
+// -------------------------------------------------------------------- INITIAL STATE
 
 const initialState = { 
 	user: null,
 	singleUser: {}
  };
 
+// -------------------------------------------------------------------- REDCUER
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case GET_SINGLE_USER: {
 			const newState = { ...state }
 			newState.singleUser = action.user
+			// newState.user = action.user
 			return newState
 		}
 		case SET_USER:
