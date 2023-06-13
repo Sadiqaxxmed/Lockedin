@@ -47,18 +47,19 @@ def add_user_about(id):
 
     return jsonify({'message': 'About added to user successfully'})
 
-@user_routes.route('/<int:id>/about', methods=['PUT'])
+@user_routes.route('about/<int:user_id>/update', methods=['PUT'])
 @login_required
-def update_user_about(id):
+def update_user_about(user_id):
     """
     Update the 'about' column of a user
     """
-    user = User.query.get(id)
+    user = User.query.get(user_id)
+    data = request.get_json()
+
     if not user:
         return jsonify({'message': 'User not found'}), 404
 
-    about = request.json.get('about')
-    user.about = about
+    user.about = data.get('updateAbout')
     db.session.commit()
 
     return jsonify({'message': 'User about updated successfully'})

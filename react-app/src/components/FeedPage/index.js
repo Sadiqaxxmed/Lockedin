@@ -89,7 +89,7 @@ function FeedPage() {
   useEffect(() => {
     dispatch(thunkGetPosts());
     dispatch(thunkGetComments());
-    dispatch(thunkLikedPosts(currUser.id));
+    dispatch(thunkLikedPosts(currUser?.id));
   }, [dispatch]);
 
   function isLikedPost(postId, userId) {
