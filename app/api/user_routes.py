@@ -64,17 +64,19 @@ def update_user_about(user_id):
 
     return jsonify({'message': 'User about updated successfully'})
 
-@user_routes.route('/<int:id>/about', methods=['DELETE'])
+@user_routes.route('about/<int:user_id>/delete', methods=['PUT'])
 @login_required
-def delete_user_about(id):
+def delete_user_about(user_id):
     """
     Delete the 'about' column of a user
     """
-    user = User.query.get(id)
+    user = User.query.get(user_id)
+    data = request.get_json()
+
     if not user:
         return jsonify({'message': 'User not found'}), 404
 
-    user.about = ''
+    user.about = data.get('deleteAbout')
     db.session.commit()
 
     return jsonify({'message': 'User about deleted successfully'})

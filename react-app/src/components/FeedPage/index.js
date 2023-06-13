@@ -257,9 +257,9 @@ function FeedPage() {
                         </div>
 
                         <div className="FD-Posted-Comment-Info-Div">
-                        <p className="FD-Posted-Comment-Name">{comment.comment.user.firstname} {comment.comment.user.lastname}</p>
-                        <p className="FD-Posted-Comment-Occupation">{comment.comment.user.occupation}</p>
-                        <p className="FD-Comment">{comment.comment.comment}</p>
+                        <p className="FD-Posted-Comment-Name">{comment.comment.user?.firstname} {comment.comment.user?.lastname}</p>
+                        <p className="FD-Posted-Comment-Occupation">{comment.comment.user?.occupation}</p>
+                        <p className="FD-Comment">{comment.comment?.comment}</p>
 
 
                         {/* COMMENT EDIT ICON */}
