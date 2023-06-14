@@ -153,13 +153,13 @@ export const thunkUpdateAbout = (userId, updateAbout) => async (dispatch) => {
     if (response.ok) {
       const about = await response.json();
       dispatch(actionUpdateAbout(userId, about));
-      dispatch(thunkGetSingleUser())
+      dispatch(thunkGetSingleUser(userId))
       return about;
     }
   };
 
 export const thunkDeleteAbout = ({userId}) => async (dispatch) => {
-	const deletedAbout = '';
+	const deletedAbout = null;
 
 	const response = await fetch(`/api/users/about/${userId}/delete`, {
 		method:'PUT',
