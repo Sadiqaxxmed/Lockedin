@@ -53,36 +53,55 @@ function ProfilePage() {
             <div className='PP-User-About-Div'>
                 <h3 className='PP-User-About-Title'>About</h3>
 
-                {currentUser?.id === user?.id && (  
-                    <i class="fa-solid fa-pen fa-lg PP-About-Edit-Icon"
+                {currentUser?.id === user?.id && currentUser?.about !== null && (  
+                    // <i class="fa-solid fa-pen fa-lg PP-About-Edit-Icon"
+                    // onClick={handleMenu}
+                    // ></i>
+                    <i class="fa-solid fa-ellipsis PP-About-Edit-Icon"
                     onClick={handleMenu}
                     ></i>
                 )}
+                {currentUser?.id === user?.id && currentUser?.about == null && (  
+                    <div className='PP-Add-About'>
+                        <OpenModalButton
+                            className="PP-Add-About-Button" 
+                            buttonText="Add About"
+                            onButtonClick={""}
+                            modalComponent={
+                                <UpdateAbout
+                                    user={currentUser}
+                                />
+                            }
+                        />
+                    </div>
+                )}
                 <div className='PP-About-Menu'>
                     {menuOpen && (
-                        <div className='PP-About-Menu-Open'>
-                            <div className='PP-About-Edit-Menu-Div'> 
-                                <OpenModalButton
-                                  className="FD-Comment-Update"
-                                  buttonText="Edit"
-                                  onButtonClick={""}
-                                  modalComponent={
-                                    <UpdateAbout
-                                        user={currentUser}
-                                    />
-                                  }
+                    <div className='PP-About-Menu-Open'>
+                        <div className='PP-About-Edit-Menu-Div'> 
+                        <i class="fa-regular fa-pen-to-square PP-About-Icons"></i>
+                            <OpenModalButton
+                                className="PP-About-Edit"
+                                buttonText="Edit"
+                                onButtonClick={""}
+                                modalComponent={
+                                <UpdateAbout
+                                    user={currentUser}
                                 />
+                                }
+                            />
                             </div>
 
                             <div className='PP-About-Delete-Menu-Div'>
+                            <i class="fa-solid fa-trash-can PP-About-Icons"></i>
                             <OpenModalButton
-                                  className="FD-Comment-Delete"
-                                  buttonText="Delete"
-                                  onButtonClick={""}
-                                  modalComponent={
+                                className="PP-About-Edit"
+                                buttonText="Delete"
+                                onButtonClick={""}
+                                modalComponent={
                                     <DeleteAbout user={currentUser} />
-                                  }
-                                />
+                                }
+                            />
                                 {/* <p className='PP-About-Delete-Menu-Text'>Delete</p> */}
                             </div>
                         </div>

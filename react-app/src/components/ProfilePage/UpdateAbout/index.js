@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../../context/Modal";
 
 import './UpdateAbout.css'
-import { thunkUpdateAbout } from "../../../store/session";
+import { thunkUpdateAbout, thunkGetSingleUser } from "../../../store/session";
 
 const UpdateAbout = (currentUser) => {
 
@@ -31,8 +31,12 @@ const UpdateAbout = (currentUser) => {
 
     closeModal();
     dispatch(thunkUpdateAbout(userId, updateAbout));
-    return history.push('/feed');
+    return history.push(`/profile/${userId}`);
 };
+
+// useEffect(() => {
+//   dispatch(thunkGetSingleUser(userId));
+// }, [dispatch, userId]);
 
   return (
     <div className="FD-Update-Comment">
