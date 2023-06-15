@@ -83,7 +83,7 @@ function ProfilePage() {
                             <OpenModalButton
                                 className="PP-About-Edit"
                                 buttonText="Edit"
-                                onButtonClick={""}
+                                onButtonClick={handleMenu}
                                 modalComponent={
                                 <UpdateAbout
                                     user={currentUser}
@@ -97,7 +97,7 @@ function ProfilePage() {
                             <OpenModalButton
                                 className="PP-About-Edit"
                                 buttonText="Delete"
-                                onButtonClick={""}
+                                onButtonClick={handleMenu}
                                 modalComponent={
                                     <DeleteAbout user={currentUser} />
                                 }

@@ -34,31 +34,31 @@ const UpdateAbout = (currentUser) => {
     return history.push(`/profile/${userId}`);
 };
 
-// useEffect(() => {
-//   dispatch(thunkGetSingleUser(userId));
-// }, [dispatch, userId]);
-
-  return (
-    <div className="FD-Update-Comment">
-      <h3 className="FD-Title">Edit About!</h3>
+return (
+    <div className="PP-Update-About">
+      <h3 className="PP-Update-Title">Edit About</h3>
+      <i class="fa-solid fa-xmark PP-Edit-About-xmark-icon"
+        onClick={() => closeModal()}
+      ></i>
+      <div class="custom-line"></div>
       {errors.emptyUpdate ? <div className="CM-Empty-Errors">{errors.emptyUpdate}</div> : null}
       <form
-        className="PS-Form"
+        className="PP-Form"
         onSubmit={handleUpdateAbout}
         method="PUT"
         encType="multipart/form-data"
       >
-        <div className="FD-Post_Div">
+        <div className="PP-Update-About-Div">
           <textarea
             type="text"
-            className="FD-Post"
+            className="PP-Update-About-TextArea"
             placeholder={updateAbout}
             value={updateAbout}
             onChange={(e) => setUpdateAbout(e.target.value)}
             required
           />
         </div>
-        <div className="FD-Del-Button" onClick={handleUpdateAbout} type="submit">Edit</div>
+        <div className="PP-Update-Button" onClick={handleUpdateAbout} type="submit">Save</div>
       </form>
     </div>
   );
