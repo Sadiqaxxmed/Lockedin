@@ -6,10 +6,10 @@ import './DeleteAbout.css'
 import { useModal } from "../../../context/Modal";
 
 
-const DeletePost = (currentUser) => {
+const DeleteAbout = (currentUser) => {
 
     const dispatch = useDispatch();
-    const {closeModal} = useModal()
+    const { closeModal } = useModal()
     const userId = useSelector(state => state.session.user?.id)
 
     const deletedAbout = currentUser.user.about
@@ -24,15 +24,15 @@ const DeletePost = (currentUser) => {
     }
 
     return(
-        <div className='DP-Main-Wrapper'>
-            <h1 className="DP-Title">Are you sure you want to delete your about section?</h1>
-            <h1 className="DP-Post">{deletedAbout}</h1>
-            <div className="DP-Buttons">
-                <div className="DP-Cancel-Button" onClick={() => closeModal()}>Cancel</div>
-                <div className="DP-Del-Button" onClick={handleDelete}>Delete</div>
+        <div className='PP-Main-Wrapper'>
+            <h1 className="PP-Delete-Title">Are you sure you want to delete your about section?</h1>
+            <h1 className="PP-Delete-About">{deletedAbout}</h1>
+            <div className="PP-Buttons">
+                <div className="PP-Cancel-Button" onClick={() => closeModal()}>Cancel</div>
+                <div className="PP-Del-Button" onClick={handleDelete}>Delete</div>
             </div>
         </div>
     )
 }
 
-export default DeletePost
+export default DeleteAbout
