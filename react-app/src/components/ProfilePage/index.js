@@ -9,6 +9,7 @@ import OpenModalButton from "../OpenModalButton";
 
 import UpdateAbout from './UpdateAbout';
 import DeleteAbout from './DeleteAbout';
+import CreateAbout from './CreateAbout';
 
 function ProfilePage() {
 
@@ -19,7 +20,9 @@ function ProfilePage() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const currentUser = useSelector((state) => state.session?.user)
+    console.log('currentUser', currentUser)
     const user = useSelector((state) => state.session?.singleUser)
+    console.log('user', user)
 
   function handleMenu() {
     if (!menuOpen) {
@@ -37,7 +40,6 @@ function ProfilePage() {
   return (
     <>
         <div className='PP-Main-Div'>
-
             <div className='PP-User-Info-Div'>
                 <div className='PP-User-Images'>
                     <img className='PP-User-HeaderImage' src={user?.headerImage}></img>
@@ -52,24 +54,20 @@ function ProfilePage() {
 
             <div className='PP-User-About-Div'>
                 <h3 className='PP-User-About-Title'>About</h3>
-
-                {currentUser?.id === user?.id && currentUser?.about !== null && (  
-                    // <i class="fa-solid fa-pen fa-lg PP-About-Edit-Icon"
-                    // onClick={handleMenu}
-                    // ></i>
+                {currentUser?.id === user?.id && user?.about !== null && (  
                     <i class="fa-solid fa-ellipsis PP-About-Edit-Icon"
                     onClick={handleMenu}
                     ></i>
                 )}
-                {currentUser?.id === user?.id && currentUser?.about == null && (  
+                {currentUser?.id === user?.id && user?.about == null && (  
                     <div className='PP-Add-About'>
                         <OpenModalButton
                             className="PP-Add-About-Button" 
                             buttonText="Add About"
                             onButtonClick={""}
                             modalComponent={
-                                <UpdateAbout
-                                    user={currentUser}
+                                <CreateAbout
+                                    user={user}
                                 />
                             }
                         />
@@ -86,12 +84,11 @@ function ProfilePage() {
                                 onButtonClick={handleMenu}
                                 modalComponent={
                                 <UpdateAbout
-                                    user={currentUser}
+                                    user={user}
                                 />
                                 }
                             />
                             </div>
-
                             <div className='PP-About-Delete-Menu-Div'>
                             <i class="fa-solid fa-trash-can PP-About-Icons"></i>
                             <OpenModalButton
@@ -99,18 +96,15 @@ function ProfilePage() {
                                 buttonText="Delete"
                                 onButtonClick={handleMenu}
                                 modalComponent={
-                                    <DeleteAbout user={currentUser} />
+                                    <DeleteAbout user={user} />
                                 }
                             />
-                                {/* <p className='PP-About-Delete-Menu-Text'>Delete</p> */}
                             </div>
                         </div>
                     )}
                 </div>
-
                 <p className='PP-User-About-Text'>{user?.about}</p>
             </div>
-
         </div>
 
         <div className='PP-SideCard-Div'>
