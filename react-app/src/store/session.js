@@ -136,6 +136,7 @@ export const thunkGetSingleUser = (userId) => async (dispatch) => {
   
 	if (res.ok) {
 		const user = await res.json();
+		console.log('THUNK GetSingleUser', user)
 		dispatch(actionSingleUser(user))
 		return user;
 	}
@@ -173,7 +174,7 @@ export const thunkDeleteAbout = ({userId}) => async (dispatch) => {
 	if (response.ok) {
 		const deletedAbout = await response.json();
 		dispatch(actionDeleteAbout(userId, deletedAbout))
-		dispatch(thunkGetSingleUser())
+		dispatch(thunkGetSingleUser(userId))
 		return deletedAbout;
 	}
 

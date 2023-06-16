@@ -8,16 +8,6 @@
     background-color: white;
 }
 
-.PP-User-About-Div {
-    position: absolute;
-    top: 60%;
-    left: 10%;
-    height: 25%;
-    width: 55%;
-    border-radius: 10px;
-    background-color: white;
-}
-
 .PP-SideCard-Div {
     position: absolute;
     top: 10%;
@@ -29,6 +19,18 @@
 
 }
 
+.PP-User-About-Div {
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    min-height: fit-content;
+    max-height: fit-content;
+    height: auto;
+    width: 55%;
+    border-radius: 10px;
+    background-color: white;
+}
+
 .PP-User-HeaderImage {
     position: relative;
     object-fit: cover;
@@ -38,6 +40,7 @@
     border-top-right-radius: 10px;
     background-color: white;
 }
+
 .PP-User-ProfileImage {
     position: absolute;
     object-fit: cover;
@@ -89,11 +92,10 @@
 }
 
 .PP-User-About-Text {
-    position: absolute;
     display: inline-flex;
-    /* width: 600px; */
-    top: 70px;
-    left: 25px;
+    padding-top: 60px;
+    padding-left: 25px;
+    padding-bottom: 10PX;
     width: 90%;
     font-family: sans-serif;
     font-size: small;
@@ -107,7 +109,6 @@
     right: 25px;
     height: 20px;
     width: 20px;
-    /* z-index: 1; */
 }
 
 .PP-About-Edit-Icon:hover {
@@ -124,9 +125,7 @@
     width: 150px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
     background-color: white;
-    /* background-color: red; */
     z-index: 1;
 }
 
@@ -137,8 +136,6 @@
     height: 50%;
     width: 100%;
     text-align: center;
-    /* background-color: red; */
-    /* z-index: 1; */
 }
 
 .PP-About-Delete-Menu-Div {
@@ -149,8 +146,6 @@
     height: 50%;
     width: 100%;
     text-align: center;
-    /* background-color: red; */
-    /* z-index: 1; */
 }
 
 .PP-About-Edit-Menu-Div:hover {
@@ -196,7 +191,6 @@
     border: 1px solid  rgb(80, 141, 226);
     color: rgb(80, 141, 226);
     border-radius: 15px;
-    z-index: 1;
 }
 
 .PP-Add-About:hover {
@@ -214,16 +208,8 @@
     font-weight: 700;
     font-family: sans-serif;
     font-size: small;
-    /* border: 1px solid  rgb(80, 141, 226);
-    color: rgb(80, 141, 226);
-    border-radius: 15px; */
     z-index: 1;
 }
-
-.PP-About-Edit-Icon {
-
-}
-
 
 .PP-About-Edit-Icon:hover {
     cursor: pointer;
@@ -238,8 +224,3 @@
 .PP-About-Icons:hover {
     cursor: pointer;
 }
-
-/* p {
-    display: inline-block;
-    width: fit-content;
-  } */

@@ -1,5 +1,5 @@
 .PP-Main-Wrapper {
-    height: 350px;
+    height: 220px;
     width: 400px;
 }
   
@@ -36,7 +36,7 @@
     font-size: .9em;
     position: absolute;
     bottom: 15px;
-    left: 5px;
+    /* left: 2px; */
   }
   
 .PP-Cancel-Button {

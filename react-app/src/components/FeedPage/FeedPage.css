@@ -1,5 +1,4 @@
 body {
-  /* height: fit-content; */
   padding-top: 150px;
   width: 100%;
   background-color: rgb(243, 242, 239)
@@ -55,7 +54,6 @@ body {
 
 .FD-Profile-SideCard-Info {
   position: absolute;
-  /* height: 20px; */
   top: 100px;
   left: 50px;
   display: flex-wrap;
