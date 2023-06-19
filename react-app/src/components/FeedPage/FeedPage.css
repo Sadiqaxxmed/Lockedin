@@ -418,7 +418,6 @@ body {
 .Post-Menu-Icon {
   position: relative;
   top: 4px;
-  /* left: 1px; */
 }
 
 .FD-Menu-Main:hover {
@@ -449,35 +448,49 @@ body {
 
 .FD-Menu-Options {
   position: absolute;
-  background-color: grey;
-  top: 5px;
-  right: 25px;
+  display: inline-flex;
+  top: 25px;
+  right: -10px;
+  height: 90px;
+  width: 150px;
   border-radius: 5px;
-  height: 60px;
-  width: 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  z-index: 1;
 }
 
 
 .FD-Comment-Menu-Options {
   position: absolute;
-  background-color: rgb(243, 242, 239);
+  display: inline-flex;
+  top: -45px;
+  right: -20px;
+  height: 90px;
+  width: 150px;
   border-radius: 5px;
-  height: 60px;
-  width: 80px;
-  top: -60px;
-  right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  z-index: 1;
 }
 
 .FD-Posted-Menu-Edit-Div {
-  background-color: rgb(254, 251, 251);
-  height: 32px;
-  width: 80px;
+  position: absolute;
+  display: inline-flex;
+  left: 0;
+  margin: 0;
+  height: 50%;
+  width: 100%;
+  text-align: center;
 }
 
 .FD-Comment-Menu-Edit-Div {
-  background-color: rgb(254, 251, 251);
-  height: 32px;
-  width: 80px;
+  position: absolute;
+  display: inline-flex;
+  left: 0;
+  margin: 0;
+  height: 50%;
+  width: 100%;
+  text-align: center;
 }
 
 .FD-Posted-Menu-Edit-Div:hover {
@@ -492,15 +505,25 @@ body {
 
 
 .FD-Posted-Menu-Delete-Div {
-  background-color: rgb(254, 251, 251);
-  height: 32px;
-  width: 80px;
+  position: absolute;
+  display: inline-flex;
+  margin: 0;
+  left: 0;
+  top: 50%;
+  height: 50%;
+  width: 100%;
+  text-align: center;
 }
 
 .FD-Comment-Menu-Delete-Div {
-  background-color: rgb(254, 251, 251);
-  height: 32px;
-  width: 80px;
+  position: absolute;
+  display: inline-flex;
+  margin: 0;
+  left: 0;
+  top: 50%;
+  height: 50%;
+  width: 100%;
+  text-align: center;
 }
 
 .FD-Posted-Menu-Delete-Div:hover {
@@ -514,44 +537,60 @@ body {
 }
 
 .FD-Posted-Card-Update {
+  position: absolute;
+  top: 17px;
+  left: 15px;
+  width: 80px;
   font-family: sans-serif;
-  font-weight: bold;
-  font-size: 14px;
+  font-size: small;
+  font-weight: 700;
   color: black;
-  position: relative;
-  top: 5px;
-  left: 0;
+  z-index: 1;
 }
 
 .FD-Comment-Update {
+  position: absolute;
+  top: 17px;
+  left: 15px;
+  width: 80px;
   font-family: sans-serif;
-  font-weight: bold;
-  font-size: 13px;
+  font-size: small;
+  font-weight: 700;
   color: black;
-  position: relative;
-  top: 8px;
-  left: 0;
+  z-index: 1;
 }
 
 .FD-Posted-Card-Delete {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  width: 80px;
   font-family: sans-serif;
-  font-weight: bold;
-  font-size: 14px;
+  font-size: small;
+  font-weight: 700;
   color: black;
-  position: relative;
-  top: 5px;
-  left: 0;
+  z-index: 1;
 }
 
 .FD-Comment-Delete {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  width: 80px;
   font-family: sans-serif;
-  font-weight: bold;
-  font-size: 13px;
+  font-size: small;
+  font-weight: 700;
   color: black;
-  position: relative;
-  top: 8px;
-  left: 0;
+  z-index: 1;
 }
+
+.FD-Menu-Icons {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
 .hidden {
   display: none;
 }
