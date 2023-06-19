@@ -105,7 +105,6 @@ function FeedPage() {
     <>
     {/* MAIN DIV */}
     <div className="FD-main-div">
-
     {/* PROFILE SIDE CARD DIV  */}
     <div className="FD-Profile-SideCard">
       <img className="FD-Header-SideCard-Img" src={currUser?.headerImage}></img>
@@ -117,7 +116,6 @@ function FeedPage() {
         <p className="FD-Profile-SideCard-Occupation">{currUser?.occupation}</p>
       </div>
     </div>
-
     {/* START A POST DIV  */}
       <div className="FD-Post-Card">
         <img className="FD-Post-Card-Img" src={currUser?.profileImage}></img>
@@ -129,15 +127,12 @@ function FeedPage() {
           />
         </div>
       </div>
-
       {/* MAIN POSTS FEED DIV */}
       <div className="FD-Post-Div">
         <>
           {posts.map((post) => (
-
             // POSTED CARD DIV
             <div className="FD-Posted-Card">
-
             {/* POSTED CARD USER INFO */}
             <Link to={`/Profile/${post.post.user?.id}`}>
               <img
@@ -149,7 +144,6 @@ function FeedPage() {
                 {post.post.user?.firstname} {post.post.user?.lastname}
               </h3>
               <p className="FD-Posted-Card-Occupation">{post.post.user?.occupation}</p>
-
               {/* POSTED CARD EDIT ICON */}
               {currUser?.id === post.post.owner_id && (
                 <div className="FD-Menu-Main">
@@ -158,10 +152,9 @@ function FeedPage() {
                     onClick={(e) => handleMenu(post.post.id)}
                   ></i>
                   {menuOpen && postCardId === post.post.id && (
-
                     <div className="FD-Menu-Options">
-
                       <div className="FD-Posted-Menu-Edit-Div">
+                      <i class="fa-regular fa-pen-to-square FD-Menu-Icons"></i>
                       <OpenModalButton
                         className="FD-Posted-Card-Update"
                         buttonText="Edit"
@@ -171,6 +164,7 @@ function FeedPage() {
                       </div>
                       
                       <div className="FD-Posted-Menu-Delete-Div">
+                      <i class="fa-solid fa-trash-can FD-Menu-Icons"></i>
                       <OpenModalButton
                         className="FD-Posted-Card-Delete"
                         buttonText="Delete"
@@ -178,12 +172,10 @@ function FeedPage() {
                         modalComponent={<DeletePost post={post.post} />}
                       />
                       </div>
-
                     </div>
                   )}
                 </div>
               )}
-
               {/* POSTED CARD: POST/LIKE/COMMENT/ICONS */}
               <p className="FD-Posted-Card-Description">{post?.post.post}</p>
               <div className="FD-Posted-Like-Comment-Div">
@@ -202,7 +194,6 @@ function FeedPage() {
                     <i 
                       class="fa-regular fa-thumbs-up FD-Posted-Like-Icon"
                       onClick={() => isLikedPost(post.post.id, currUser.id)}
-
                     ></i>
                     <p className="FD-Posted-Like-Text">Like</p>
                     </>
@@ -220,7 +211,6 @@ function FeedPage() {
                 <p className="FD-Posted-Comment-Text">Comment</p>
                 </div>
               </div>
-
               {commentPost === post.post.id && (
               // COMMENT DIV
               <div className={ commentDropDownVisible ? "FD-Comment-Div" : "hidden"}>
@@ -239,12 +229,10 @@ function FeedPage() {
                       />
                     </div>
                   </div>
-
                   {/* COMMENTS SECTION: USR INFO & COMMENT POSTED*/}
                   {getPostComments(post.post.id).map((comment) => (
                     <div className="FD-Comment-Bottom">
                       <div className="FD-Posted-Comment">
-
                         <div className="FD-Posted-Comment-Img">
                         <img
                           className="FD-Comment-Card-Img"
@@ -255,13 +243,10 @@ function FeedPage() {
                           }
                         ></img>
                         </div>
-
                         <div className="FD-Posted-Comment-Info-Div">
                         <p className="FD-Posted-Comment-Name">{comment.comment.user?.firstname} {comment.comment.user?.lastname}</p>
                         <p className="FD-Posted-Comment-Occupation">{comment.comment.user?.occupation}</p>
                         <p className="FD-Comment">{comment.comment?.comment}</p>
-
-
                         {/* COMMENT EDIT ICON */}
                         {currUser?.id === comment.comment.owner_id && (
                           <div className="FD-Comment-Menu-Main">
@@ -269,12 +254,10 @@ function FeedPage() {
                               class="fa-solid fa-ellipsis FD-Comment-Menu-Icon"
                               onClick={(e) => commentMenu(comment.comment.id)}
                             ></i>
-
                             {menuOpen && commentId === comment.comment.id && (
-
                               <div className="FD-Comment-Menu-Options">
-
                                 <div className="FD-Comment-Menu-Edit-Div">
+                                <i class="fa-regular fa-pen-to-square FD-Menu-Icons"></i>
                                 <OpenModalButton
                                   className="FD-Comment-Update"
                                   buttonText="Edit"
@@ -287,9 +270,8 @@ function FeedPage() {
                                   }
                                 />
                                 </div>
-
-
                                 <div className="FD-Comment-Menu-Delete-Div">
+                                <i class="fa-solid fa-trash-can FD-Menu-Icons"></i>
                                 <OpenModalButton
                                   className="FD-Comment-Delete"
                                   buttonText="Delete"
@@ -299,10 +281,7 @@ function FeedPage() {
                                   }
                                 />
                                 </div>
-
-
                               </div>
-
                             )}
                           </div>
                         )}
@@ -314,11 +293,9 @@ function FeedPage() {
               </div>
               )}
             </div>
-
           ))}
         </>
       </div>
-
       {/* LOCKEDIN NEWS DIV */}
       <div className="FD-LockedInNews-SideCard">
         <p className="FD-LockedInNews-Title"> LockedIn News</p>
@@ -333,7 +310,6 @@ function FeedPage() {
           <p className="FD-Secondary-Text">3h ago • 2,710 readers</p>
         </ul>
       </div>
-
     </div>
     </>
   );
