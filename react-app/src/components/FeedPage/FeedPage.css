@@ -1,12 +1,14 @@
 body {
-  padding-top: 150px;
+  /* padding-top: 150px; */
+  margin: 0;
   width: 100%;
   background-color: rgb(243, 242, 239)
 }
 
 .FD-main-div {
   display: inline-flex;
-  height: fit-content;
+  max-height: fit-content;
+
 }
 
 .FD-Profile-SideCard {
