@@ -47,7 +47,11 @@ const CreateComment = (post) => {
 
   return (
     <div className="FD-Post-Comment">
-      <h3 className="FD-Title">Leave a Comment!</h3>
+      <h3 className="FD-Create-Comment-Title">Leave a Comment!</h3>
+      <i class="fa-solid fa-xmark FD-Create-Comment-xmark-icon"
+        onClick={() => closeModal()}
+      ></i>
+      <div class="custom-line"></div>
       {errors.emptyComment ? <div className="CM-Empty-Errors">{errors.emptyComment}</div> : null}
       <form
         className="PS-Form"
@@ -55,16 +59,17 @@ const CreateComment = (post) => {
         method="POST"
         encType="multipart/form-data"
       >
-        <div className="FD-Post_Div">
+        <div className="FD-Create-Comment-Div">
           <textarea
             type="text"
-            className="FD-Post"
+            className="FD-Create-Comment-TextArea"
+            placeholder={"What do you want to say?"}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             required
           />
         </div>
-        <div className="FD-Del-Button" onClick={handleSubmit} type="submit">Submit</div>
+        <div className="FD-Comment-Submit-Button" onClick={handleSubmit} type="submit">Submit</div>
       </form>
     </div>
   );

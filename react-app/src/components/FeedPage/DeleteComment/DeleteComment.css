@@ -1,3 +1,64 @@
-.DP-Main-Wrapper{
-  height: 300px;
+.FD-Comment-Main-Wrapper {
+  height: 220px;
+  width: 400px;
+  z-index: 9999;
+}
+
+
+.FD-Delete-Comment-Title {
+  color: rgb(2, 102, 192);
+  position: absolute;
+  font-size: 20px;
+  width: 250px;
+  text-align: center;
+  font-weight: 600;
+  top: 40px;
+  left: 70px;
+}
+
+.FD-Delete-Comment-Buttons {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: .9em;
+  position: absolute;
+  bottom: 15px;
+  left: -5px;
+}
+
+.FD-Comment-Cancel-Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: rgb(112, 102, 115);
+  width: 115px;
+  border-radius: 6px;
+  margin-left: 80px;
+  padding: 6px 0px 6px 0px;
+  color: white;
+  cursor: pointer;
+}
+
+.FD-Comment-Delete-Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: rgb(2, 102, 192);
+  width: 115px;
+  border-radius: 6px;
+  margin-left: 20px;
+  padding: 6px 0px 6px 0px;
+  color: white;
+  cursor: pointer;
+}
+.FD-Comment-Cancel-Button:hover {
+  background-color: rgb(112, 102, 115, 0.7);
+}
+
+.FD-Comment-Delete-Button:hover {
+  background-color: rgb(2, 102, 192, 0.7);
 }

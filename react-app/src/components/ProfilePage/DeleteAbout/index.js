@@ -26,7 +26,6 @@ const DeleteAbout = (currentUser) => {
     return(
         <div className='PP-Main-Wrapper'>
             <h1 className="PP-Delete-Title">Are you sure you want to delete your about section?</h1>
-            {/* <h1 className="PP-Delete-About">{deletedAbout}</h1> */}
             <div className="PP-Buttons">
                 <div className="PP-Cancel-Button" onClick={() => closeModal()}>Cancel</div>
                 <div className="PP-Del-Button" onClick={handleDelete}>Delete</div>

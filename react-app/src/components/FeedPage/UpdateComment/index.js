@@ -38,7 +38,11 @@ const UpdateComment = (props) => {
 
   return (
     <div className="FD-Update-Comment">
-      <h3 className="FD-Title">Edit Comment!</h3>
+      <h3 className="FD-Update-Comment-Title">Edit Comment!</h3>
+      <i class="fa-solid fa-xmark FD-Update-Comment-xmark-icon"
+        onClick={() => closeModal()}
+      ></i>
+      <div class="custom-line"></div>
       {errors.emptyComment ? <div className="CM-Empty-Errors">{errors.emptyComment}</div> : null}
       <form
         className="PS-Form"
@@ -46,17 +50,17 @@ const UpdateComment = (props) => {
         method="PUT"
         encType="multipart/form-data"
       >
-        <div className="FD-Post_Div">
+        <div className="FD-Update-Comment-Div">
           <textarea
             type="text"
-            className="FD-Post"
+            className="FD-Update-Comment-TextArea"
             placeholder={updateComment}
             value={updateComment}
             onChange={(e) => setUpdateComment(e.target.value)}
             required
           />
         </div>
-        <div className="FD-Del-Button" onClick={handleUpdateComment} type="submit">Edit</div>
+        <div className="FD-Comment-Update-Button" onClick={handleUpdateComment} type="submit">Edit</div>
       </form>
     </div>
   );

@@ -1,17 +1,29 @@
-.FD-form {
+.FD-Create-Post {
+  position: relative;
   height: 400px;
+  width: 600px;
+  z-index: 9999;
 }
 
-.FD-Title {
-  color: rgb(2, 102, 192);
+.FD-Create-Post-Title {
   position: absolute;
   font-size: 20px;
-  width: 250px;
+  width: 100px;
   text-align: center;
-  font-weight: 600;
-  top: 40px;
-  left: 80px;
-  margin: 0;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  top: 5px;
+  left: 20px;
+}
+
+.PP-Create-Post-xmark-icon {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  font-size: 20px;
+  color: grey;
+  cursor: pointer;
 }
 
 .PS-Empty-Errors {
@@ -21,29 +33,49 @@
   color: rgb(2, 102, 192);
 }
 
-.FD-Post_Div {
+.FD-Create-Post-TextArea {
+  height: 240px;
+  width: 560px;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.FD-Create-Post-Div {
   position: absolute;
-  top: 115px;
-  left: 60px;
+  top: 80px;
+  left: 20px;
 }
 
 .FD-Post {
   resize: none;
 }
 
-.FD-Del-Button {
+.FD-Delete-Button {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: center;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: medium;
   background-color: rgb(2, 102, 192);
-  bottom: 40px;
-  left: 130px;
-  width: 115px;
-  border-radius: 6px;
+  bottom: 20px;
+  left: 480px;
+  width: 80px;
+  border-radius: 20px;
   margin-left: 20px;
   padding: 6px 0px 6px 0px;
   color: white;
   cursor: pointer;
+}
+
+.FD-Delete-Button:hover {
+  background-color: rgb(2, 82, 162);
 }

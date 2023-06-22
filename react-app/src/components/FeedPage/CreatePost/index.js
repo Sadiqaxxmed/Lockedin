@@ -40,8 +40,12 @@ const CreatePost = () => {
 };
 
   return (
-    <div className="FD-form">
-      <h3 className="FD-Title">Start a Post!</h3>
+    <div className="FD-Create-Post">
+      <h3 className="FD-Create-Post-Title">Start a Post!</h3>
+      <i class="fa-solid fa-xmark PP-Create-Post-xmark-icon"
+        onClick={() => closeModal()}
+      ></i>
+      <div class="custom-line"></div>
       {errors.emptyPost ? <div className="PS-Empty-Errors">{errors.emptyPost}</div> : null}
       <form
         className="PS-Form"
@@ -49,16 +53,17 @@ const CreatePost = () => {
         method="POST"
         encType="multipart/form-data"
       >
-        <div className="FD-Post_Div">
+        <div className="FD-Create-Post-Div">
           <textarea
             type="text"
-            className="FD-Post"
+            className="FD-Create-Post-TextArea"
+            placeholder={"What do you want to talk about?"}
             value={post}
             onChange={(e) => setPost(e.target.value)}
             required
           />
         </div>
-        <div className="FD-Del-Button" onClick={handleSubmit} type="submit">Post</div>
+        <div className="FD-Delete-Button" onClick={handleSubmit} type="submit">Post</div>
       </form>
     </div>
   );
