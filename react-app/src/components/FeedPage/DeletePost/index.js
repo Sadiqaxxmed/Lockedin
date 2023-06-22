@@ -22,12 +22,11 @@ const DeletePost = (post) => {
     }
 
     return(
-        <div className='DP-Main-Wrapper'>
-            <h1 className="DP-Title">Are you sure you want to delete this post?</h1>
-            <h1 className="DP-Post">{deletedPost}</h1>
-            <div className="DP-Buttons">
-                <div className="DP-Cancel-Button" onClick={() => closeModal()}>Cancel</div>
-                <div className="DP-Del-Button" onClick={handleDelete}>Delete</div>
+        <div className='FD-Post-Main-Wrapper'>
+            <h1 className="FD-Delete-Post-Title">Are you sure you want to delete this post?</h1>
+            <div className="FD-Post-Delete-Buttons">
+                <div className="FD-Post-Cancel-Button" onClick={() => closeModal()}>Cancel</div>
+                <div className="FD-Post-Delete-Button" onClick={handleDelete}>Delete</div>
             </div>
         </div>
     )

@@ -25,12 +25,11 @@ const DeleteComment = ({comment}) => {
     }
 
     return(
-        <div className='DP-Main-Wrapper'>
-            <h1 className="DP-Title">Are you sure you want to delete this comment?</h1>
-            <h1 className="DP-Post">{deletedComment}</h1>
-            <div className="DP-Buttons">
-                <div className="DP-Cancel-Button" onClick={() => closeModal()}>Cancel</div>
-                <div className="DP-Del-Button" onClick={handleDelete}>Delete</div>
+        <div className='FD-Comment-Main-Wrapper'>
+            <h1 className="FD-Delete-Comment-Title">Are you sure you want to delete this comment?</h1>
+            <div className="FD-Delete-Comment-Buttons">
+                <div className="FD-Comment-Cancel-Button" onClick={() => closeModal()}>Cancel</div>
+                <div className="FD-Comment-Delete-Button" onClick={handleDelete}>Delete</div>
             </div>
         </div>
     )

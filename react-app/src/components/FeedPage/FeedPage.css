@@ -349,7 +349,7 @@ body {
 
 }
 
-.FD-Posted-Comment{
+.FD-Posted-Comment {
   display: inline-flex;
 }
 
@@ -456,7 +456,7 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-color: white;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 
@@ -470,7 +470,7 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-color: white;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .FD-Posted-Menu-Edit-Div {
@@ -545,7 +545,7 @@ body {
   font-size: small;
   font-weight: 700;
   color: black;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .FD-Comment-Update {
@@ -557,7 +557,7 @@ body {
   font-size: small;
   font-weight: 700;
   color: black;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .FD-Posted-Card-Delete {
@@ -569,7 +569,7 @@ body {
   font-size: small;
   font-weight: 700;
   color: black;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .FD-Comment-Delete {
@@ -581,14 +581,14 @@ body {
   font-size: small;
   font-weight: 700;
   color: black;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .FD-Menu-Icons {
   position: absolute;
   top: 15px;
   left: 15px;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .hidden {

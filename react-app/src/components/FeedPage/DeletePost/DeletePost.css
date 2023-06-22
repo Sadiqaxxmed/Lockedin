@@ -1,9 +1,11 @@
-.DP-Main-Wrapper {
-  height: 340px;
+.FD-Post-Main-Wrapper {
+  height: 220px;
+  width: 400px;
+  z-index: 9999;
 }
 
 
-.DP-Title{
+.FD-Delete-Post-Title {
   color: rgb(2, 102, 192);
   position: absolute;
   font-size: 20px;
@@ -11,20 +13,10 @@
   text-align: center;
   font-weight: 600;
   top: 40px;
-  left: 80px;
+  left: 70px;
 }
 
-.DP-Post{
-  position: absolute;
-  font-size: 15px;
-  width: 250px;
-  text-align: center;
-  font-weight: 600;
-  top: 160px;
-  left: 80px;
-}
-
-.DP-Buttons{
+.FD-Post-Delete-Buttons {
   display: flex;
   flex-direction:row;
   justify-content: center;
@@ -33,10 +25,10 @@
   font-size: .9em;
   position: absolute;
   bottom: 15px;
-  left: 12px;
+  left: -5px;
 }
 
-.DP-Cancel-Button{
+.FD-Post-Cancel-Button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +42,7 @@
   cursor: pointer;
 }
 
-.DP-Del-Button{
+.FD-Post-Delete-Button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,4 +54,11 @@
   padding: 6px 0px 6px 0px;
   color: white;
   cursor: pointer;
+}
+.FD-Post-Cancel-Button:hover {
+  background-color: rgb(112, 102, 115, 0.7);
+}
+
+.FD-Post-Delete-Button:hover {
+  background-color: rgb(2, 102, 192, 0.7);
 }
