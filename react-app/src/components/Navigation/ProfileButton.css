@@ -7,10 +7,48 @@
   border-radius: 50%;
 }
 
+.Logedin-profile-icon {
+  position: absolute;
+  object-fit: cover;
+  top: 10px;
+  left: 12px;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+}
+
+.Logedin-Username {
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: black;
+  position: absolute;
+  left: 75px;
+}
+
+.Logedin-User-Occupation {
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: gray;
+  position: absolute;
+  left: 75px;
+  top: 30px;
+}
+
+.Custom-Break-Hr {
+  position: absolute;
+  width: 100%;
+  bottom: 25px;
+  border: 0.1px solid gray;
+}
 .profile-icon:hover {
   cursor: pointer;
 }
-.Logedin-Div {
+
+.Logedout-Div {
   position: absolute;
   top: 5px;
   right: -35px;
@@ -20,16 +58,39 @@
   background-color: white;
 }
 
-.Logedout-Div {
+.Logedin-Div {
   position: absolute;
   text-align: center;
   top: 25px;
-  right: -40px;
+  right: -10px;
   height: 140px;
-  width: 120px;
+  width: 220px;
   border-radius: 5px;
   background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.LI-ViewProfile-Button {
+  position: absolute;
+  text-align: center;
+  height: 15px;
+  width: 95%;
+  left: 4px;
+  bottom: 45px;
+  padding-top: 2px;
+  font-weight: 700;
+  font-family: sans-serif;
+  font-size: 12px;
+  border: 1px solid  rgb(45, 100, 188);
+  color: rgb(45, 100, 188);
+  border-radius: 15px;
+}
+
+.LI-ViewProfile-Button:hover {
+  cursor: pointer;
+  border: 2px solid  rgb(45, 100, 188);
+}
+
 .Login {
   text-align: center;
   font-size: 15px;
@@ -57,15 +118,13 @@
 }
 
 .Logout {
-  position: relative;
-  bottom: -30px;
-  left: 25px;
-
-  height: 25px;
-  width: 65px;
-  border-radius: 5px;
-  color: white;
-  background-color: rgb(2, 102, 192);
+  position: absolute;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  left: 10px;
+  bottom: 10px;
+  color: gray;
 }
 
 .Login:hover {
