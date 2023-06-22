@@ -49,15 +49,18 @@ function ProfileButton({ user }) {
       </div>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <div className="Logedout-Div">
+          <div className="Logedin-Div">
             <div className="userInfo">
-              <p>Hello {user.firstname}</p>
-              {user.email}
+              <img className="Logedin-profile-icon" src={user.profileImage}></img>
+              <p className="Logedin-Username">{user.firstname} {user.lastname}</p>
+              <p className="Logedin-User-Occupation">{user.occupation}</p>
             </div>
-              <div className="Logout" onClick={handleLogout}>Log Out</div>
+            <div className="LI-ViewProfile-Button">View Profile</div>
+            <hr className="Custom-Break-Hr"></hr>
+            <div className="Logout" onClick={handleLogout}>Sign Out</div>
           </div>
         ) : (
-          <div className="Logedin-Div">
+          <div className="Logedout-Div">
             <OpenModalButton
               className='Login'
               buttonText="Log In"
