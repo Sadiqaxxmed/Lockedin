@@ -21,5 +21,5 @@ Lockedin is a professional networking platform that enables users to connect wit
 
 **Splash Page:**
 
-![Alt Text](https://lh3.googleusercontent.com/pw/AJFCJaXfda-R6EdgJTBQc7Mh2E-5cyJA3SIMRNaJq0DNLBlcFQ0WIxa_xOEHa2IyjFQk_x_6LavVRavE5BwXsjRjYdV3MKFCB8GSNRBja2GRPCUSa06xobtg_oJ7Z__4S2ODkavUN-9_Rvvk914sZyfJBbh-=w1790-h897-s-no?authuser=0)
+![Alt Text](https://lh3.googleusercontent.com/pw/AJFCJaWpfxNPSYzOyAok7W_w_CUYszn0BizD1E-IfXS7yWfrGvTfhUO2vbV78CFEBE-9wexlidSyaQh4XaLutX_5Japm_vH1E40OdtLa0hBfzJdlOtIQ320J9XrKIH1rTIP5C1p9S-ART-_L5bx4IjNhd0LU=w2878-h1446-s-no?authuser=0)
 
