@@ -9,27 +9,27 @@ def seed_comments():
     )
     comment2 = Comment(
       comment='Nahh its tuff',
-      owner_id=2,
+      owner_id=3,
       comment_id=1
     )
     comment3 = Comment(
       comment='Im struggling',
-      owner_id=2,
+      owner_id=4,
       comment_id=1
     )
     comment4 = Comment(
       comment='YESSIRR',
-      owner_id=2,
+      owner_id=6,
       comment_id=2
     )
     comment5 = Comment(
       comment='Lets goooooo',
-      owner_id=2,
+      owner_id=5,
       comment_id=2
     )
     comment6 = Comment(
       comment='Talk to me g',
-      owner_id=2,
+      owner_id=1,
       comment_id=3
     )
     comment7 = Comment(
