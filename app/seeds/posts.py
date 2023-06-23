@@ -11,23 +11,23 @@ def seed_posts():
     )
     post2 = Post(
         post='Starting a new position YALLLLL!',
-        owner_id=1
+        owner_id=2
     )
     post3 = Post(
         post='Feeling a bit down today can really use some motivation today 😪.',
-        owner_id=1
+        owner_id=5
     )
     post4 = Post(
-        post='Today was a fun day working on capstones.',
-        owner_id=1
+        post='Today was a fun day working on this new project called AmigoSpace.😁',
+        owner_id=4
     )
     post5 = Post(
-        post='Starting a new position YALLLLL!',
-        owner_id=1
+        post='Starting a new position YALLLLL! 🤩',
+        owner_id=3
     )
     post6 = Post(
         post='Feeling a bit down today can really use some motivation today 😪.',
-        owner_id=1
+        owner_id=6
     )
 
     db.session.add(post1)
