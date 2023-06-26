@@ -15,8 +15,8 @@ body {
   position: fixed;
   height: 200px;
   width: 220px;
-  top: 75px;
-  left: 160px;
+  top: 10.5%;
+  left: 10.5%;
   background-color: white;
   border: 3px;
   border-radius: 5px;
@@ -70,8 +70,10 @@ body {
   position: fixed;
   height: 310px;
   width: 268px;
-  top: 75px;
-  left: 990px;
+  /* top: 75px; */
+  /* left: 990px; */
+  top: 10.5%;
+  left: 68.8%;
   background-color: white;
   border: 3px;
   border-radius: 5px;
@@ -109,8 +111,9 @@ body {
   height: 118px;
   width: 560px;
   position: absolute;
-  top: 75px;
-  left: 400px;
+  top: 10.5%;
+  left: 27.8%;
+  /* left: 400px; */
 
   background-color: white;
   border: 3px;
@@ -152,8 +155,10 @@ body {
   width: 560px;
   position: absolute;
   flex-wrap: wrap;
-  top: 200px;
-  left: 400px;
+  /* top: 200px;
+  left: 400px; */
+  top: 27.8%;
+  left: 27.8%;
   background-color: transparent;
 }
 
