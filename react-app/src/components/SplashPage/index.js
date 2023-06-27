@@ -10,6 +10,8 @@ import SignupFormModal from "../SignupFormModal";
 import SignupFormPage from "../SignupFormPage";
 
 import "./SplashPage.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink } from "react-router-dom";
 
 function SplashPage() {
 
@@ -90,7 +92,17 @@ function SplashPage() {
       </div>
       <div className="SP-Signup-Div">
         <div className="SP-Signup-Container">
-          <button className="SP-Signup-Button">New to Lockedin? Join now</button>
+          {/* <NavLink to="/signup" className="SP-Signup-Link"> */}
+          {/* <button className="SP-Signup-Button"> */}
+          <OpenModalButton
+            buttonText="New to Lockedin? Join now"
+            className="SP-Signup-Button"
+            modalComponent={<SignupFormModal />}
+          />
+          {/* <p className="SP-Signup-Button-Text">New to Lockedin? Join now</p> */}
+            {/* New to Lockedin? Join now
+            </button> */}
+          {/* </NavLink> */}
         </div>
       </div>
 

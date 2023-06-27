@@ -53,28 +53,18 @@ function SignupFormModal() {
 
   return (
     <div className="signup-form-modal">
-      <h1 className="signup-title">Sign Up</h1>
+      <h1 className="signup-title">Make the most of your professional life</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="SM">
-          <div className="SM-Email-Div">
-            <div className="SM-Email-Container">
-							{errors.email && <p className="SG-Email-Err">{errors.email}</p>}
-              <p className="SM-Text">Email</p>
-              <input
-                className="SM-Input"
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-          </div>
+
+          <div className="SM-Names-Div">
           <div className="SM-Firstname-Div">
             <div className="SM-Firstname-Container">
 						{errors.firstname && <p className="SG-Email-Err">{errors.firstname}</p>}
-              <p className="SM-Text">Firstname</p>
+              {/* <p className="SM-Text">Firstname</p> */}
               <input
-                className="SM-Input"
+                className="SM-Names-Input"
+                placeholder="Firstname"
                 type="text"
                 value={firstname}
                 onChange={(e) => setFirstname(e.target.value)}
@@ -85,9 +75,10 @@ function SignupFormModal() {
           <div className="SM-Lastname-Div">
             <div className="SM-Lastname-Container">
 						{errors.lastname && <p className="SG-Email-Err">{errors.lastname}</p>}
-              <p className="SM-Text">Lastname</p>
+              {/* <p className="SM-Text">Lastname</p> */}
               <input
-                className="SM-Input"
+                className="SM-Names-Input"
+                placeholder="Lastname"
                 type="text"
                 value={lastname}
                 onChange={(e) => setLastname(e.target.value)}
@@ -95,12 +86,28 @@ function SignupFormModal() {
               />
             </div>
           </div>
+          </div>
+
+          <div className="SM-Email-Div">
+            <div className="SM-Email-Container">
+							{errors.email && <p className="SG-Email-Err">{errors.email}</p>}
+              <input
+                className="SM-Email-Input"
+                placeholder="Email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
           <div className="SM-Occupation-Div">
             <div className="SM-Occupation-Container">
 						{errors.occupation && <p className="SG-Email-Err">{errors.occupation}</p>}
-              <p className="SM-Text">Occupation</p>
+              {/* <p className="SM-Text">Occupation</p> */}
               <input
-                className="SM-Input"
+                className="SM-Occupation-Input"
+                placeholder="Occupation"
                 type="text"
                 value={occupation}
                 onChange={(e) => setOccupation(e.target.value)}
@@ -108,12 +115,15 @@ function SignupFormModal() {
               />
             </div>
           </div>
+
+          <div className="SM-Profile-Image-Header-Image-Div">
           <div className="SM-Profile-Image-Div">
             <div className="SM-Profile-Image-Container">
 						{errors.profileImage && <p className="SG-Email-Err">{errors.profileImage}</p>}
-              <p className="SM-Text">Profile Image</p>
+              {/* <p className="SM-Text">Profile Image</p> */}
               <input
-                className="SM-Input"
+                className="SM-Profile-Image-Header-Image-Input"
+                placeholder="Profile Image"
                 type="text"
                 value={profileImage}
                 onChange={(e) => setProfileImage(e.target.value)}
@@ -124,9 +134,10 @@ function SignupFormModal() {
           <div className="SM-Header-Image-Div">
             <div className="SM-Header-Image-Container">
 						{errors.headerImage && <p className="SG-Email-Err">{errors.headerImage}</p>}
-              <p className="SM-Text">Header Image</p>
+              {/* <p className="SM-Text">Header Image</p> */}
               <input
-                className="SM-Input"
+                className="SM-Profile-Image-Header-Image-Input"
+                placeholder="Header Image"
                 type="text"
                 value={headerImage}
                 onChange={(e) => setHeaderImage(e.target.value)}
@@ -134,12 +145,15 @@ function SignupFormModal() {
               />
             </div>
           </div>
+          </div>
+
           <div className="SM-Password-Div">
             <div className="SM-Password-Container">
 						{errors.password && <p className="SG-Email-Err">{errors.password}</p>}
-              <p className="SM-Text">Password</p>
+              {/* <p className="SM-Text">Password</p> */}
               <input
-                className="SM-Input"
+                className="SM-Password-Input"
+                placeholder="Password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -147,12 +161,14 @@ function SignupFormModal() {
               />
             </div>
           </div>
+
           <div className="SM-Confirm-Password-Div">
             <div className="SM-Confirm-Password-Container">
 						{errors.confirmPassword && <p className="SG-Email-Err">{errors.confirmPassword}</p>}
-              <p className="SM-Text">Confirm Password</p>
+              {/* <p className="SM-Text">Confirm Password</p> */}
               <input
-                className="SM-Input"
+                className="SM-Confirm-Password-Input"
+                placeholder="Confirm Password"
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -161,7 +177,8 @@ function SignupFormModal() {
             </div>
           </div>
         </div>
-        <div className="LM-Button" onClick={handleSubmit} type="submit">
+
+        <div className="Join-Now-Button" onClick={handleSubmit} type="submit">
           Sign Up
         </div>
       </form>

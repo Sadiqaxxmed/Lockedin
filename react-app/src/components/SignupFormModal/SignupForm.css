@@ -1,32 +1,95 @@
 .signup-form-modal {
   /* margin-top: 20px; */
-  height: 650px;
+  height: 520px;
+  width: 550px;
 }
 
 .signup-title {
-  font-size: 40px;
-  color:  rgb(2, 102, 192);
+  font-size: 26px;
+  color:  black;
   position: absolute;
-  top: 5px;
-  left: 150px;
+  top: 3%;
+  left: 5.5%;
   margin: 0;
-
+  font-family: sans-serif;  
 }
 
 .SM-Text {
   font-size: 10px;
   margin-left: 10px;
-  /* margin-top: 0; */
-  /* margin-bottom: 0; */
 }
 
+.SM-Names-Div {
+  position: absolute;
+  display: inline-flex;
+  top: 20px;
+  left: 30px;
+}
 
-
-.SM-Input {
+.SM-Names-Input {
   margin-left: 10px;
-  /* margin-top: 0;
-  margin-bottom: 0; */
-  width: 350px;
+  height: 25px;
+  width: 200px;
+}
+
+.SM-Email-Div {
+  position: absolute;
+  top: 70px;
+  left: 30px;
+}
+
+.SM-Email-Input {
+  margin-left: 10px;
+  height: 25px;
+  width: 420px;
+}
+
+.SM-Occupation-Div {
+  position: absolute;
+  top: 120px;
+  left: 30px;
+}
+
+.SM-Occupation-Input {
+  margin-left: 10px;
+  height: 25px;
+  width: 420px;
+}
+
+.SM-Profile-Image-Header-Image-Div {
+  position: absolute;
+  display: inline-flex;
+  top: 180px;
+  left: 30px;
+}
+
+.SM-Profile-Image-Header-Image-Input {
+  margin-left: 10px;
+  height: 25px;
+  width: 200px;
+}
+.SM-Password-Div {
+  position: absolute;
+  top: 230px;
+  left: 30px;
+}
+
+.SM-Password-Input {
+  margin-left: 10px;
+  height: 25px;
+  width: 420px;
+}
+
+.SM-Confirm-Password-Div {
+  position: absolute;
+  top: 280px;
+  left: 30px;
+}
+
+.SM-Confirm-Password-Input {
+  margin-left: 10px;
+  height: 25px;
+  width: 420px;
 }
 
 .SM {
@@ -37,6 +100,35 @@
 
 .SG-Email-Err {
   color:  rgb(2, 102, 192);
-  font-size: 10px;
+  font-size: 11px;
   margin: 0;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.Join-Now-Button {
+  position: absolute;
+  top: 420px;
+  left: 65px;
+  height: 50px;
+  width: 420px;
+  background-color: rgb(2, 102, 192);
+  font-size: 15px;
+  border-radius: 50px;
+  border: none;
+
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Join-Now-Button:hover {
+  background-color: rgb(0, 42, 79); /* Darker shade of blue */
+  cursor: pointer;
 }
