@@ -8,6 +8,7 @@ import SplashPage from './components/SplashPage';
 import ProfilePage from "./components/ProfilePage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import SignupFormModal from "./components/SignupFormModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +28,8 @@ function App() {
             <LoginFormPage />
           </Route>
           <Route exact path="/signup">
-            <SignupFormPage />
+            {/* <SignupFormPage /> */}
+            <SignupFormModal />
           </Route>
           <Route exact path="/Feed" >
             <FeedPage />

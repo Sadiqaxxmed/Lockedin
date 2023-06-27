@@ -266,6 +266,10 @@
   font-family: sans-serif;
   font-weight: 700;
   font-size: 14px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .SP-Signup-Button:hover {
@@ -273,4 +277,8 @@
   border: 2px solid rgb(2, 102, 192);
   background-color: rgb(2, 102, 192);
   color: white;
+}
+
+.SP-Signup-Button-Text {
+
 }
