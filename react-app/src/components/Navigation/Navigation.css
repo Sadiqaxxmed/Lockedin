@@ -73,3 +73,40 @@
     right: 500px;
   }
 }
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) { 
+
+  .NV-search {
+    display: none;
+  }
+
+  .NV-div-left {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+  .NV-div-right {
+    position: absolute;
+    top: 15px;
+    right: 50px;
+  }
+}
+
+@media screen and (max-width: 575.98px) { 
+  .NV-search {
+    display: none;
+  }
+
+  .NV-div-left {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+  .NV-div-right {
+    position: absolute;
+    top: 15px;
+    right: 50px;
+  }
+}
