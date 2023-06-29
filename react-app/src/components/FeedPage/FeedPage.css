@@ -6,10 +6,19 @@ body {
 }
 
 .FD-main-div {
+  /* position: absolute; */
+  display: inline-flex;
+  /* margin-top: 25%;
+  margin-left: 25%;
+  margin-right: 25%; */
+  
+  /* height: 100%;
+  width: 80%; */
+  background-color: rgb(243, 242, 239);
   display: inline-flex;
   max-height: fit-content;
-
 }
+
 
 .FD-Profile-SideCard {
   position: fixed;
@@ -27,6 +36,7 @@ body {
   position: absolute;
   top: 35px;
   left: 80px;
+  left: 38%;
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -37,6 +47,7 @@ body {
   position: absolute;
   height: 70px;
   width: 220px;
+  width: 100%;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -64,14 +75,14 @@ body {
   text-align: center;
   align-items: center;
   justify-items: center;
-}
+} 
 
 .FD-LockedInNews-SideCard {
   position: fixed;
   height: 310px;
   width: 268px;
-  /* top: 75px; */
-  /* left: 990px; */
+  /* top: 75px; 
+  left: 990px;  */
   top: 10.5%;
   left: 68.8%;
   background-color: white;
@@ -108,10 +119,11 @@ body {
 
 
 .FD-Post-Card {
-  height: 118px;
+  height: 110px;
   width: 560px;
   position: absolute;
   top: 10.5%;
+  /* top: 75px; */
   left: 27.8%;
   /* left: 400px; */
 
@@ -152,9 +164,11 @@ body {
 
 .FD-Post-Div {
   height: 60vw;
+  height: fit-content;
   width: 560px;
   position: absolute;
   flex-wrap: wrap;
+  /* margin-top: 250px; */
   /* top: 200px;
   left: 400px; */
   top: 27.8%;
@@ -601,3 +615,52 @@ body {
 .hidden {
   display: none;
 }
+
+@media screen and (min-width: 2560px) { 
+
+  .FD-Profile-SideCard {
+    position: fixed;
+    height: 200px;
+    width: 220px;
+    top: 8%;
+    left: 27.5%;
+    background-color: white;
+    border: 3px;
+    border-radius: 5px;
+  }
+
+  .FD-Post-Card {
+    height: 110px;
+    width: 560px;
+    position: absolute;
+    top: 8%;
+    left: 38%;  
+    background-color: white;
+    border: 3px;
+    border-radius: 10px;
+  }
+
+  .FD-Post-Div {
+    height: 60vw;
+    height: fit-content;
+    width: 560px;
+    position: absolute;
+    flex-wrap: wrap;
+    top: 15.8%;
+    left: 38%;  
+    background-color: transparent;
+  }
+
+  .FD-LockedInNews-SideCard {
+    position: fixed;
+    height: 310px;
+    width: 268px;
+    top: 8%;
+    left: 61.8%;
+    background-color: white;
+    border: 3px;
+    border-radius: 5px;
+  }
+
+ }
+
