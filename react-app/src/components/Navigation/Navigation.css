@@ -19,8 +19,8 @@
   background-color: white;
   display: inline-flex;
   width: 100%;
-  /* height: 50px; */
-  height: 7.5%;
+  height: 50px;
+  /* height: 7.5%; */
   position: fixed;
   top: 0;
   left: 0;
@@ -46,4 +46,30 @@
   background-color: rgb(238, 243, 247);
   border: none;
   border-radius: 5px;
+}
+
+@media screen and (min-width: 2560px) { 
+  .NV-div-main {
+    z-index: 100;
+    background-color: white;
+    display: inline-flex;
+    width: 100%;
+    height: 80px;
+    /* height: 7.5%; */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .NV-div-left {
+    position: absolute;
+    top: 15px;
+    left: 340px;
+  }
+
+  .NV-div-right {
+    position: absolute;
+    top: 25px;
+    right: 500px;
+  }
 }
