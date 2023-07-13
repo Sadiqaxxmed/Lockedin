@@ -664,47 +664,104 @@ body {
 
  }
 
-
-/* @media screen and (min-width: 1200px) { 
-
-  .FD-Profile-SideCard {
-    left: 6.5%;
-  }
-
-  .FD-Post-Card {
-    left: 28%;  
-  }
-
-  .FD-Post-Div {
-    left: 28%;  
-  }
-
-  .FD-LockedInNews-SideCard {
-
-    left: 76.5%;
-  }
- } */
-
 @media screen and (min-width: 992px) and (max-width: 1199.98px) { 
 
   .FD-Profile-SideCard {
-    left: 7.5%;
+    left: 1.5%;
   }
 
   .FD-Post-Card {
-    left: 28%;  
+    left: 25%;  
   }
 
   .FD-Post-Div {
     top: 19.8%;
-    left: 28%;  
+    left: 25%;  
   }
 
   .FD-LockedInNews-SideCard {
-    left: 76.5%;
+    /* left: 76.5%; */
+    display: none;
   }
 
- }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1600px) { 
+  .FD-Profile-SideCard {
+    left: 12%;
+  }
+
+  .FD-Post-Card {
+    left: 30%;  
+  }
+
+  .FD-Post-Div {
+    /* top: 19.8%; */
+    left: 30%;  
+  }
+
+  .FD-LockedInNews-SideCard {
+    left: 74.5%;
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1800px) { 
+  .FD-Profile-SideCard {
+    left: 15%;
+  }
+
+  .FD-Post-Card {
+    left: 30%;  
+  }
+
+  .FD-Post-Div {
+    /* top: 19.8%; */
+    left: 30%;  
+  }
+
+  .FD-LockedInNews-SideCard {
+    left: 66.5%;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2200px) { 
+  .FD-Profile-SideCard {
+    left: 20%;
+  }
+
+  .FD-Post-Card {
+    left: 34%;  
+  }
+
+  .FD-Post-Div {
+    /* top: 19.8%; */
+    left: 34%;  
+  }
+
+  .FD-LockedInNews-SideCard {
+    left: 67%;
+  }
+}
+
+@media screen and (min-width: 2200px) and (max-width: 2560px) { 
+  .FD-Profile-SideCard {
+    left: 27%;
+  }
+
+  .FD-Post-Card {
+    left: 38%;  
+  }
+
+  .FD-Post-Div {
+    top: 19.8%;
+    left: 38%;  
+  }
+
+  .FD-LockedInNews-SideCard {
+    left: 64.5%;
+  }
+}
+
 
 @media screen and (min-width: 768px) and (max-width: 991.98px) { 
 
@@ -750,7 +807,6 @@ body {
   .FD-LockedInNews-SideCard {
     display: none;  
   }
-
  }
 
 @media screen and (min-width: 576px) and (max-width: 767.98px) { 
@@ -805,7 +861,7 @@ body {
     height: 165px;
     width: 560px;
     top: 8%;
-    left: 1%;
+    left: 0.5%;  
     background-color: white;
     border: 3px;
     border-radius: 5px;
@@ -831,12 +887,12 @@ body {
 
   .FD-Post-Card {
     top: 30%;
-    left: 1%;  
+    left: 0.5%;  
   }
 
   .FD-Post-Div {
     top: 45%;
-    left: 1%;  
+    left: 0.5%;  
   }
 
   .FD-LockedInNews-SideCard {
@@ -844,137 +900,3 @@ body {
   }
 
  }
-
-@media screen and (min-height: 600px) and (max-height: 799.98px) {
-
-  .FD-Profile-SideCard {
-    position: absolute;
-    height: 165px;
-    width: 560px;
-    top: 10%;
-    left: 10%;
-    background-color: white;
-    border: 3px;
-    border-radius: 5px;
-  }
-
-  .FD-Profile-SideCard-Img {
-    left: 43%;
-  }
-
-  .FD-Profile-SideCard-Name {
-    position: absolute;
-    top: -6px;
-    width: 160px;
-    left: 140px;
-  }
-  
-  .FD-Profile-SideCard-Occupation {
-    position: absolute;
-    top: 22.5px;
-    width: 140px;
-    left: 152px;
-  }
-  .FD-Post-Card {
-    top: 40%;
-    left: 10%;  
-  }
-
-  .FD-Post-Div {
-    top: 60%;
-    left: 10%;  
-  }
-
-  .FD-LockedInNews-SideCard {
-    display: none;  
-  }
-}
-
-@media screen and (min-height: 800px) {
-  .FD-Profile-SideCard {
-    position: absolute;
-    height: 165px;
-    width: 560px;
-    top: 8%;
-    left: 10%;
-    background-color: white;
-    border: 3px;
-    border-radius: 5px;
-  }
-
-  .FD-Profile-SideCard-Img {
-    left: 43%;
-  }
-
-  .FD-Profile-SideCard-Name {
-    position: absolute;
-    top: -6px;
-    width: 160px;
-    left: 140px;
-  }
-  
-  .FD-Profile-SideCard-Occupation {
-    position: absolute;
-    top: 22.5px;
-    width: 140px;
-    left: 152px;
-  }
-  .FD-Post-Card {
-    top: 30%;
-    left: 10%;  
-  }
-
-  .FD-Post-Div {
-    top: 45%;
-    left: 10%;  
-  }
-
-  .FD-LockedInNews-SideCard {
-    display: none;  
-  }
-}
-
-
-@media screen and (min-height: 1000px) and (max-height: 1500px) { 
-  .FD-Profile-SideCard {
-    position: absolute;
-    height: 165px;
-    width: 560px;
-    top: 6%;
-    left: 10%;
-    background-color: white;
-    border: 3px;
-    border-radius: 5px;
-  }
-
-  .FD-Profile-SideCard-Img {
-    left: 43%;
-  }
-
-  .FD-Profile-SideCard-Name {
-    position: absolute;
-    top: -6px;
-    width: 160px;
-    left: 140px;
-  }
-  
-  .FD-Profile-SideCard-Occupation {
-    position: absolute;
-    top: 22.5px;
-    width: 140px;
-    left: 152px;
-  }
-  .FD-Post-Card {
-    top: 24%;
-    left: 10%;  
-  }
-
-  .FD-Post-Div {
-    top: 36%;
-    left: 10%;  
-  }
-
-  .FD-LockedInNews-SideCard {
-    display: none;  
-  }
-}
