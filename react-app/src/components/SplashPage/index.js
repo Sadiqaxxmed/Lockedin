@@ -13,6 +13,9 @@ import "./SplashPage.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { NavLink } from "react-router-dom";
 
+import logo from '../../Images/LockedInLogo.png'
+
+
 function SplashPage() {
 
   const dispatch = useDispatch();
@@ -42,11 +45,11 @@ function SplashPage() {
 
   return (
     <div className="SP-body" style={{ backgroundColor: 'white' }}>
-      <h1 className="SP-Title">Locked</h1>
-      <i class="fa-brands fa-linkedin fa-2xl SP-Logo"></i>
-      <h3 className="SP-Sub-Title">Welcome to your professional community</h3>
-      <img className="SP-Background" src="https://raw.githubusercontent.com/yhtay/EmployedIn-Capstone/main/react-app/src/components/SplashLoginPage/SplashLoginImages/linkedin-splashpage-img.svg"></img>
 
+      <img className="SP-LockedInLogo" src={logo} alt="Logo" />
+
+      <div className="SP-Left-Div">
+      <h3 className="SP-Sub-Title">Welcome to your professional community</h3>
       <form onSubmit={handleSubmit} className="SP-Form">
         <div className="SP-Email-Div">
           <div className="SP-Email-Container">
@@ -63,7 +66,6 @@ function SplashPage() {
         </div>
         <div className="SP-Password-Div">
           <div className="SP-Password-Container">
-
             <p className="SP-Password-Text">Password</p>
             <input
               className="SP-Password-Input"
@@ -92,40 +94,18 @@ function SplashPage() {
       </div>
       <div className="SP-Signup-Div">
         <div className="SP-Signup-Container">
-          {/* <NavLink to="/signup" className="SP-Signup-Link"> */}
-          {/* <button className="SP-Signup-Button"> */}
           <OpenModalButton
             buttonText="New to Lockedin? Join now"
             className="SP-Signup-Button"
             modalComponent={<SignupFormModal />}
           />
-          {/* <p className="SP-Signup-Button-Text">New to Lockedin? Join now</p> */}
-            {/* New to Lockedin? Join now
-            </button> */}
-          {/* </NavLink> */}
         </div>
       </div>
+      </div>
 
-      {/* <OpenModalButton
-        className="SP-Login"
-        id="button"
-        buttonText="Log In"
-        modalComponent={<LoginFormModal />}
-      />
-      <OpenModalButton
-        className="SP-Signup"
-        buttonText="Sign Up"
-        modalComponent={<SignupFormModal />}
-      /> */}
-      {/* <h2 className="SP-Sub-Title">Lock In & Secure Your Next Dream Job.</h2> */}
-      {/* <img className="SP-About-Me-Pic" src="https://avatars.githubusercontent.com/u/43020644?v=4"></img>
-      <h3 className="SP-About-Me">Hi there! I'm a full stack developer based in Dallas Texas.</h3>
-      <a href="https://github.com/Sadiqaxxmed">
-        <i class="fa-brands fa-github fa-lg githubLink"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/sadiqaxxmed/">
-        <i class="fa-brands fa-linkedin-in fa-lg linkedinLink"></i>
-      </a> */}
+      <div className="SP-Right-Div">
+      <img className="SP-Background" src="https://raw.githubusercontent.com/yhtay/EmployedIn-Capstone/main/react-app/src/components/SplashLoginPage/SplashLoginImages/linkedin-splashpage-img.svg"></img>
+      </div>
     </div>
   );
 }
