@@ -12,6 +12,20 @@
   height: 28vw;
 }
 
+/* .SP-Left-Div {
+  position: absolute;
+  display: inline-flex;
+  height: 100vh;
+  width: 90vw;
+  left: 8.2%;
+  color: rgb(2, 102, 192);
+} */
+
+/* .SP-Right-Div {
+  height: 100vh;
+  width: 10vw;
+} */
+
 .SP-Title {
   position: absolute;
   font-family: sans-serif;
@@ -70,10 +84,12 @@
   cursor: pointer;
 }
 
-.SP-Logo {
+.SP-LockedInLogo {
   position: absolute;
   top: 6%;
-  left: 16%;
+  left: 8%;
+  height: 5vh;
+  width: 8vw;
   color: rgb(2, 102, 192);
 }
 
@@ -279,6 +295,8 @@
   color: white;
 }
 
+/*------------------------------------ MEDIA QUERIES ------------------------------------*/
+
 @media screen and (min-width: 2560px) { 
   .SP-body {
     background-color: rgb(255, 255, 255);
@@ -391,3 +409,461 @@
     width: 1500px;
   }
 }
+/* 
+
+@media screen and (max-width: 575.98px) { 
+  .SP-body {
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    height: 60vh;
+    width: 120vw;
+  }
+
+  .SP-Logo {
+    position: absolute;
+    top: 9.5%;
+    left: 56%;
+    color: rgb(2, 102, 192);
+  }
+
+  .SP-Title {
+    position: absolute;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    top: 3%;
+    left: 30%;
+    color: rgb(2, 102, 192);
+  }
+  
+  .SP-Sub-Title {
+    font-size: 20px;
+    width: 100vw;
+    top: 12%;
+    left: 15%;
+  }
+  
+  .SP-Email-Text {
+    top: 20%;
+    font-size: 18px;
+  }
+  
+  .SP-Email-Input {
+    top: 26%;
+    width: 70%;
+  }
+  
+  .SP-Password-Text {
+    top: 35%;
+    font-size: 18px;
+  }
+  
+  .SP-Password-Input {
+    top: 41%;
+    width: 70%;
+  } 
+
+  .SP-Signin-Button {
+    top: 51%;
+    left: 8.5%;
+    width: 76%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+.SP-Signin-Button:hover {
+    cursor: pointer;
+    border: 2px solid rgb(2, 102, 192);
+    background-color: white;
+    color: rgb(2, 102, 192);
+  }
+  
+.SP-Left-Or-Line {
+    position: absolute;
+    top: 64%;
+    left: 8.5%;
+    width: 32%;
+    height: 1px;
+    background-color: rgb(64, 64, 64);
+  }
+  
+.SP-Or-Text {
+    top: 61%;
+    left: 45.5%;
+    font-size: 15px;
+  }
+  
+.SP-Right-Or-Line {
+    top: 64%;
+    left: 53%;
+    width: 32%;
+
+  }
+  
+.SP-Demo-Button {
+    top: 68%;
+    width: 76%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+.SP-Signup-Button {
+    top: 80%;
+    width: 76%;
+    height: 70px;
+    font-size: 20px;
+
+  }
+
+.SP-Background {
+  display: none;
+  }
+} 
+
+
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) { 
+  .SP-body {
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    height: 60vh;
+    width: 120vw;
+  }
+
+  .SP-Logo {
+    position: absolute;
+    top: 9.5%;
+    left: 56%;
+    color: rgb(2, 102, 192);
+  }
+
+  .SP-Title {
+    position: absolute;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    top: 3%;
+    left: 30%;
+    color: rgb(2, 102, 192);
+  }
+  
+  .SP-Sub-Title {
+    font-size: 20px;
+    width: 100vw;
+    top: 12%;
+    left: 15%;
+  }
+  
+  .SP-Email-Text {
+    top: 20%;
+    font-size: 18px;
+  }
+  
+  .SP-Email-Input {
+    top: 26%;
+    width: 70%;
+  }
+  
+  .SP-Password-Text {
+    top: 35%;
+    font-size: 18px;
+  }
+  
+  .SP-Password-Input {
+    top: 41%;
+    width: 70%;
+  } 
+
+  .SP-Signin-Button {
+    top: 51%;
+    left: 8.5%;
+    width: 76%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+.SP-Signin-Button:hover {
+    cursor: pointer;
+    border: 2px solid rgb(2, 102, 192);
+    background-color: white;
+    color: rgb(2, 102, 192);
+  }
+  
+.SP-Left-Or-Line {
+    position: absolute;
+    top: 64%;
+    left: 8.5%;
+    width: 32%;
+    height: 1px;
+    background-color: rgb(64, 64, 64);
+  }
+  
+.SP-Or-Text {
+    top: 61%;
+    left: 45.5%;
+    font-size: 15px;
+  }
+  
+.SP-Right-Or-Line {
+    top: 64%;
+    left: 53%;
+    width: 32%;
+
+  }
+  
+.SP-Demo-Button {
+    top: 68%;
+    width: 76%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+.SP-Signup-Button {
+    top: 80%;
+    width: 76%;
+    height: 70px;
+    font-size: 20px;
+
+  }
+
+.SP-Background {
+  display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) { 
+  .SP-body {
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    height: 36vw;
+  }
+
+  .SP-Logo {
+    position: absolute;
+    top: 9.5%;
+    left: 27.2%;
+    color: rgb(2, 102, 192);
+  }
+
+  .SP-Title {
+    position: absolute;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    top: 3%;
+    left: 8.5%;
+    color: rgb(2, 102, 192);
+  }
+  
+  .SP-Sub-Title {
+    font-size: 45px;
+    width: 70%;
+    top: 12%;
+    left: 8.5%;
+  }
+  
+  .SP-Email-Text {
+    top: 35%;
+    font-size: 18px;
+  }
+  
+  .SP-Email-Input {
+    top: 40%;
+    width: 30%;
+  }
+  
+  .SP-Password-Text {
+    top: 48%;
+    font-size: 18px;
+  }
+  
+  .SP-Password-Input {
+    top: 53%;
+    width: 30%;
+  } 
+
+
+  .SP-Signin-Button {
+    top: 60%;
+    left: 8.5%;
+    width: 30%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+  .SP-Signin-Button:hover {
+    cursor: pointer;
+    border: 2px solid rgb(2, 102, 192);
+    background-color: white;
+    color: rgb(2, 102, 192);
+  }
+  
+  .SP-Left-Or-Line {
+    position: absolute;
+    top: 70%;
+    left: 8.5%;
+    width: 14%;
+    height: 1px;
+    background-color: rgb(64, 64, 64);
+  }
+  
+  .SP-Or-Text {
+    top: 68.5%;
+    left: 23.5%;
+    font-size: 15px;
+  }
+  
+  .SP-Right-Or-Line {
+    top: 70%;
+    left: 25%;
+    width: 14%;
+
+  }
+  
+  .SP-Demo-Button {
+    top: 75%;
+    width: 30%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+  .SP-Signup-Button {
+    top: 83%;
+    width: 30%;
+    height: 70px;
+    font-size: 20px;
+
+  }
+
+  .SP-Background {
+    position: absolute;
+    top: 340px;
+    right: -150px;
+    height: 500px;
+    width: 500px;
+  }
+}
+
+
+@media screen and (min-width: 992px) and (max-width: 1199.98px) { 
+  .SP-body {
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    height: 36vw;
+  }
+
+  .SP-Logo-Div {
+    position: absolute;
+    display: inline-flex;
+    height: 10vh;
+    width: 15vw;
+    top: 3.5%;
+    left: 8.2%;
+    color: rgb(2, 102, 192);
+  }
+
+  .SP-Logo {
+    position: absolute;
+    top: 50%;
+    left: 86.2%;
+    color: rgb(2, 102, 192);
+  }
+
+  .SP-Title {
+    position: absolute;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    top: -25%;
+    left: 3.5%;
+    color: rgb(2, 102, 192);
+  }
+  
+  .SP-Sub-Title {
+    font-size: 45px;
+    width: 40%;
+    top: 10%;
+    left: 8.5%;
+  }
+  
+  .SP-Email-Text {
+    top: 35%;
+    font-size: 18px;
+  }
+  
+  .SP-Email-Input {
+    top: 43%;
+    width: 30%;
+  }
+  
+  .SP-Password-Text {
+    top: 50%;
+    font-size: 18px;
+  }
+  
+  .SP-Password-Input {
+    top: 58%;
+    width: 30%;
+  } 
+
+
+  .SP-Signin-Button {
+    top: 70%;
+    left: 8.5%;
+    width: 30%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+  .SP-Signin-Button:hover {
+    cursor: pointer;
+    border: 2px solid rgb(2, 102, 192);
+    background-color: white;
+    color: rgb(2, 102, 192);
+  }
+  
+  .SP-Left-Or-Line {
+    position: absolute;
+    top: 84%;
+    left: 8.5%;
+    width: 14%;
+    height: 1px;
+    background-color: rgb(64, 64, 64);
+  }
+  
+  .SP-Or-Text {
+    top: 80%;
+    left: 23.3%;
+    font-size: 15px;
+  }
+  
+  .SP-Right-Or-Line {
+    top: 84%;
+    left: 25%;
+    width: 14%;
+
+  }
+  
+  .SP-Demo-Button {
+    top: 88%;
+    width: 30%;
+    height: 70px;
+    font-size: 20px;
+  }
+  
+  .SP-Signup-Button {
+    top: 101%;
+    width: 30%;
+    height: 70px;
+    font-size: 20px;
+
+  }
+
+  .SP-Background {
+    position: absolute;
+    top: 250px;
+    right: -80px;
+    height: 600px;
+    width: 600px;
+  }
+} */
